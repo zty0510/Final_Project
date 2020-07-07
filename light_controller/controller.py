@@ -14,3 +14,9 @@ class BaseController:
 
     def work_once(self):
         raise NotImplementedError
+
+    def on(self):
+        raise NotImplementedError
+
+    def off(self):
+        raise NotImplementedError

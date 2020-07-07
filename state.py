@@ -7,7 +7,7 @@
 #=============================================================================#
 from typing import Tuple
 from data_source.fr24_crawler import Fr24Crawler
-from light_controller.controller import LEDController
+from light_controller.controller import *
 
 
 class State:
@@ -18,6 +18,7 @@ class State:
         self.__flt_lst = []
         self.__interval = interval
         self.__actions = []
+        self.__crawler = Fr24Crawler(loc, rng)
 
     def get_location(self) -> Tuple[float, float]:
         return self.__loc
@@ -26,13 +27,13 @@ class State:
         return self.__range
 
     def set_location(self, loc: Tuple[float, float]):
-        raise NotImplementedError
+        self.__loc = loc
 
     def set_range(self, rng: float):
-        raise NotImplementedError
+        self.__range = rng
 
-    def add_action(self, actions):
-        raise NotImplementedError
+    def add_action(self, action: BaseController):
+        self.__actions.append(action)
 
     def spin(self):
         raise NotImplementedError
