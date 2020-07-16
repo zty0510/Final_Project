@@ -14,5 +14,5 @@ class Fr24Crawler:
     def __init__(self, loc: Tuple[float, float], rng: float):
         raise NotImplementedError
 
-    def get_data_once(self) -> List[Dict[str: Any]]:
+    def get_data_once(self):
         raise NotImplementedError
