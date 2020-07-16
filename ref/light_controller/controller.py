@@ -6,8 +6,9 @@
 #                         Last motified: 07/07/2020                           #
 #=============================================================================#
 
-from gpiozero import LED
-from time import sleep
+from gpiozero import LED as _LED
+from time import sleep as _sleep
+import multiprocessing
 
 
 class BaseController:
@@ -15,7 +16,7 @@ class BaseController:
     def __init__(self):
         raise NotImplementedError
 
-    def work_once(self):
+    def work_once(self, flight_list):
         raise NotImplementedError
 
     def on(self):
@@ -28,15 +29,30 @@ class BaseController:
 class LEDController(BaseController):
 
     def __init__(self, pin: int):
-        self.__LED = LED(pin)
+        self.__LED = _LED(pin)
+        self.__process = None
 
-    def work_once(self):
+    def work_once(self, flight_list):
         self.__LED.on()
-        sleep(1)
+        _sleep(1)
         self.__LED.off()
 
-    def on(self):
-        self.__LED.on()
+    @staticmethod
+    def _work(freq, led):
+        t = 1 / freq
+        while True:
+            led.on()
+            _sleep(t)
+            led.off()
+
+    def on(self, flight_list):
+        if self.__process:
+            return
+        self.__process = multiprocessing.Process(
+            target=LEDController._work, args=(1, self.__LED))
+        self.__process.start()
 
     def off(self):
-        self.__LED.off()
+        if not self.__process:
+            return
+        self.__process.terminate()

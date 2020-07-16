@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Configuration - Who is Flying Over?</title>
+</head>
+<body>
+    <h1>Configuration - Who is Flying Over?</h1>
+    <p>In this page, you could configure how the web crawler works.</p>
+    {% if not error and config %}
+        <hr>
+        <p>Current configration (as JSON):</p>
+        <p style="font-family: monospace, monospace;">{{ config }}</p>
+    {% endif %}
+    {% if error %}
+        <hr>
+        <p>Error occurred:</p>
+        <p style="font-family: monospace, monospace;">{{ error }}.</p>
+    {% endif %}
+    <hr>
+    <p>Change configration here:</p>
+    <form name="config" action="/config" method="post">
+        <p>LED Behavior:</p>
+        <p>Blink Frequency: <input type="text" name="freq"> Hz</p>
+        <p>Cralwer Behavior:</p>
+        <p>Central coordinate: <input type="text" name="lati"><input type="text" name="long"></p>
+        <p>Range: <input type="text" name="rng"> nm</p>
+        <p>Interval: <input type="text" name="interval"> sec</p>
+        <p><input type="submit" value="OK!"></p>
+    </form>
+    <hr>
+</body>
+</html>

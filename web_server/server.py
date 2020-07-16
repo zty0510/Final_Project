@@ -5,15 +5,26 @@
 #                     Author: Diao Zihao <hi@ericdiao.com>                    #
 #                         Last motified: 07/07/2020                           #
 #=============================================================================#
-from typing import Tuple
-from data_source.fr24_crawler import Fr24Crawler
-from light_controller.controller import *
+from flask import Flask, request, render_template
 
 
-class State:
+web_server = Flask(__name__)
 
-    def __init__(self):
-        raise NotImplementedError
 
-    def spin(self):
-        raise NotImplementedError
+@web_server.route('/')
+def home():
+    raise NotImplementedError
+
+
+@web_server.route('/config', methods=['GET', 'POST'])
+def config():
+    raise NotImplementedError
+
+
+@web_server.route('/vis', methods=['GET'])
+def vis():
+    raise NotImplementedError
+
+
+if __name__ == "__main__":
+    web_server.run(host="127.0.0.1", port=5000)
