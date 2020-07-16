@@ -42,6 +42,12 @@ To connect to your Pi via SSH, you need a working SSH client on your computer. I
 
 Then for this Pi, the IP address for it is `172.30.15.68` (search for such a field in your output). You could run `ssh pi@172.30.15.68` on you local computer’s terminal to connect to it. Side note: if your Pi is connected to your own router in your dorm, you could only connect to it within the same network as your Pi (i.e., if you connect it to your own dorm router, you will not be able to connect to it through the ShanghaiTech Wi-Fi network without extra configuation).
 
+Another thing you need to do is to install the required packages (dependencies) of the project. You can do this by downloading the packages from the PyPI. In the terminal of your Pi (or a shell SSHed into the Pi), in the root directory of your repo, execute the following: 
+
+```shell
+pip3 install -r requirements.txt
+```
+
 ## Overview
 
 The project contains four parts. Each part requires you to implement a particular functionality of the project. Generally, you have one week of time to finish one part. At the end of each week, you are required to submit your implementation (Python code), a report on how you implement this part. Also, a face-to-face check will be arranged requiring you to explain how your implementation works to a TA.
