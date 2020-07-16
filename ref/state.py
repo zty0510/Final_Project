@@ -49,8 +49,8 @@ class State:
             self.__range = config['rng']
             self.__interval = config['interval']
             self.__crawler = Fr24Crawler(self.__loc, self.__range)
-            self.__actions = []
-            self.add_action(LEDController(17))
+            # self.__actions = []
+            # self.add_action(LEDController(17))
 
     def spin(self):
         while True:
