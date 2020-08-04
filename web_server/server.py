@@ -9,6 +9,7 @@ from flask import Flask, request, render_template
 
 
 web_server = Flask(__name__)
+web_server.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 
 @web_server.route('/')

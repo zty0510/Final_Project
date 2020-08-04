@@ -11,11 +11,18 @@ from time import sleep
 from os.path import exists
 from simplejson import load, dump
 from data_source.fr24_crawler import Fr24Crawler
+import numpy as np
+import matplotlib.pyplot as plt
 from light_controller.controller import *
+import matplotlib
+matplotlib.use('Agg')
 
 _config_location = '/tmp/fly_over.json'
+_graph_location = 'web_server/static/'
 _logger = logging.getLogger("WFO-Cralwer")
 _logger.setLevel('INFO')
+
+plt.rcParams['xtick.labelsize'] = 6
 
 
 class State:
@@ -52,6 +59,29 @@ class State:
             # self.__actions = []
             # self.add_action(LEDController(17))
 
+    def __draw(self):
+        if not self.__flt_lst:
+            return
+        carrier = {}
+        for flt in self.__flt_lst:
+            if not flt.get("flight"):
+                continue
+            try:
+                carrier[flt['flight'][0:2]] += 1
+            except:
+                carrier[flt['flight'][0:2]] = 1
+        carrier_lst = sorted(list(carrier.keys()))
+        carrier_cnt = [carrier[k] for k in carrier]
+        x_axis = np.arange(len(carrier_lst))
+        plt.bar(tuple(x_axis), carrier_cnt,
+                align='center', alpha=0.5)
+        plt.xticks(x_axis, carrier_lst, rotation=90)
+        plt.ylabel("Number")
+        plt.xlabel("Carrier")
+        plt.title("Flight Number by Carrier")
+        plt.savefig("{}/carrier.png".format(_graph_location))
+        plt.clf()
+
     def spin(self):
         while True:
             try:
@@ -59,6 +89,7 @@ class State:
                 _logger.info("Get flight list of {} flights.".format(
                     len(self.__flt_lst)))
                 if self.__flt_lst:
+                    self.__draw()
                     for action in self.__actions:
                         action.work_once(self.__flt_lst)
                 self.__update_config()
@@ -70,9 +101,9 @@ class State:
 if __name__ == '__main__':
     default_config = {
         "freq": 1.0,
-        "long": 0.0,
-        "lati": 0.0,
-        "rng": 1.0,
+        "long": 30.0,
+        "lati": 104.0,
+        "rng": 100000.0,
         "interval": 5.0
     }
     if not exists(_config_location):

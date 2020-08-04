@@ -1,8 +1,10 @@
 from flask import Flask, request, render_template, redirect, url_for
 from simplejson import dump, load, dumps
 from os.path import exists
+import time
 
 web_server = Flask(__name__)
+web_server.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 default_config = {
     "freq": 1.0,
@@ -42,8 +44,8 @@ def config():
 
 @web_server.route('/vis', methods=['GET'])
 def vis():
-    return
+    return render_template('vis.html', now=time.asctime())
 
 
 if __name__ == "__main__":
-    web_server.run(host="0.0.0.0", port=8999)
+    web_server.run(host="0.0.0.0", port=9000)

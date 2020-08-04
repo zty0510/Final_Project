@@ -6,25 +6,44 @@
 #                         Last motified: 07/07/2020                           #
 #=============================================================================#
 
+# NOTE to student:
+# YOU ARE NOT SUPPOSED TO EDIT THE FILE.
+#
+# This file is intended to provide a unified entrypoint for your web server
+# and the cralwer. You can treat this file as a black box. Being unable to
+# know how the magic in this file works won't cause trouble to you finishing
+# the project. If you feel the need to edit it, do it at your own risk.
+# Understand every line of the file before proceed to editing. When in doubt,
+# ask on Piazza.
+
 from state import State
 from web_server.server import web_server
-import multiprocessing
+import os
+import logging
 
 if __name__ == "__main__":
-    # create the `State` object of the web crawler.
-    state = State()
-    # start two process
-    # @server_process: the Flask HTTP server process for configuration and data visualization (step 3, 4);
-    # @crawler_process: the web crawler process for data retriving (step 1, 2);
-    server_process = multiprocessing.Process(target=web_server.run)
-    cralwer_process = multiprocessing.Process(target=state.spin)
-    # let those two process run
-    server_process.start()
-    cralwer_process.start()
-    # wait for the two running process and kill them when Ctr-C is pressed
-    try:
-        server_process.join()
-        cralwer_process.join()
-    except KeyboardInterrupt:
-        server_process.kill()
-        cralwer_process.kill()
+    logger = logging.getLogger("si100b_proj:main")
+    logger.setLevel("INFO")
+    # Create a new process.
+    # `fork()` is a UNIX syscall that creates a new process.
+    # `os.fork` is a Python wrapper of it. See `man fork` for more information.
+    pid = os.fork()
+    if (pid == 0):
+        # The child process.
+        # In this process, we run the web server.
+        ppid = os.getppid()
+        try:
+            web_server.run(host="0.0.0.0", port=9000)
+        except KeyboardInterrupt:
+            logger.warning("Web server exits.")
+            os.kill(ppid)
+    else:
+        # The parent process.
+        # In this process, we run the cralwer and LED controller.
+        try:
+            state = State()
+            state.spin()
+        except KeyboardInterrupt:
+            # The process is being killed, let the child process exit.
+            logger.warning("Crawler exits.")
+            os.kill(pid)

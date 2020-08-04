@@ -8,17 +8,24 @@
 
 from state import State
 from web_server.server import web_server
-import multiprocessing
+import os
+import logging
 
 if __name__ == "__main__":
-    state = State()
-    server_process = multiprocessing.Process(target=web_server.run)
-    cralwer_process = multiprocessing.Process(target=state.spin)
-    server_process.start()
-    cralwer_process.start()
-    try:
-        server_process.join()
-        cralwer_process.join()
-    except KeyboardInterrupt:
-        server_process.kill()
-        cralwer_process.kill()
+    logger = logging.getLogger("si100b_proj:main")
+    logger.setLevel("INFO")
+    pid = os.fork()
+    if (pid == 0):
+        ppid = os.getppid()
+        try:
+            web_server.run(host="0.0.0.0", port=9000)
+        except KeyboardInterrupt:
+            logger.warning("Web server exits.")
+            os.kill(ppid)
+    else:
+        try:
+            state = State()
+            state.spin()
+        except KeyboardInterrupt:
+            logger.warning("Crawler exits.")
+            os.kill(pid)
