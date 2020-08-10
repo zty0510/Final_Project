@@ -1,3 +1,5 @@
+# README
+
 # SI 100B Project: Who is Flying over?
 
 Welcome to the web project of SI 100B, Fall 2020. In this project, you are going to build a web crawler to obtain real time flight data from the website FlightRadar24 and then use it to control the an external cricuit through the GPIO interface of your Raspberry Pi. Let’s get started.
@@ -42,9 +44,9 @@ To connect to your Pi via SSH, you need a working SSH client on your computer. I
 
 Then for this Pi, the IP address for it is `172.30.15.68` (search for such a field in your output). You could run `ssh pi@172.30.15.68` on you local computer’s terminal to connect to it. Side note: if your Pi is connected to your own router in your dorm, you could only connect to it within the same network as your Pi (i.e., if you connect it to your own dorm router, you will not be able to connect to it through the ShanghaiTech Wi-Fi network without extra configuation).
 
-Another thing you need to do is to install the required packages (dependencies) of the project. You can do this by downloading the packages from the PyPI. In the terminal of your Pi (or a shell SSHed into the Pi), in the root directory of your repo, execute the following: 
+Another thing you need to do is to install the required packages (dependencies) of the project. You can do this by downloading the packages from the PyPI. In the terminal of your Pi (or a shell SSHed into the Pi), in the root directory of your repo, execute the following:
 
-```shell
+```bash
 pip3 install -r requirements.txt
 ```
 
@@ -54,9 +56,55 @@ The project contains four parts. Each part requires you to implement a particula
 
 The 4 parts are:
 
-* **[Part 1](./docs/README.part1.md)**: Build your web crawler;
-* **[Part 2](./docs/README.part2.md)**: Control the LEDs via GPIO;
-* **[Part 3](./docs/README.part3.md)**: Build control panel;
-* **[Part 4](./docs/README.part4.md)**: Do data visualization;
+- **[Part 1](./docs/README.part1.md)**: Build your web crawler;
+- **[Part 2](./docs/README.part2.md)**: Control the LEDs via GPIO;
+- **[Part 3](./docs/README.part3.md)**: Build control panel;
+- **[Part 4](./docs/README.part4.md)**: Do data visualization;
 
 The specification for each part is located in `docs` directory of this repo. Check them for detailed requirements for each step.
+
+## Basics of HTTP and HTML
+
+### HTTP
+
+HTTP, or the Hyper-text Transfer Protocol, is the underlying protocols used by web server and your web browsers to transfer data. Generally, how the HTTP works is that the user agent (your web browser) initalize a connection to the web server and it send information including what resource on the server it want to access (the URL, like `https://sist.shanghaitech.edu.cn/`) and how it want to access the resource (e.g., to retrive it or to modify it? Formally, it is called method. Examples includes `GET` and `POST`). After recieve the request from the user agent, the server will send back resources the user want along with a status code indicating the status of the request (is it successful? If an error occurred, is it the problem of the server or the client?).
+
+An example of HTTP request / response is given below:
+
+The client (user agent) send out the following request
+
+```
+GET / HTTP/1.1
+Host: www.example.com
+User-Agent: curl/7.54.0
+```
+
+The server will typically reply with the following
+
+```
+HTTP/1.1 200 OK
+Server: nginx/1.14.2
+Date: Thu, 16 Jul 2020 12:42:13 GMT
+Content-Type: text/html; charset=utf-8
+
+<html>
+<head>
+<title>Welcome</title>
+</head>
+<body>
+<p>It works!</p>
+</body>
+</html>
+```
+
+This conversation is basically for the client trying to get the `/` directory of the server `www.example.com`. The server reply with a `200` status code indicating the request is successful and the content of the requested resource is attached below the headers as `<html>....</html>`. Other possible status codes includes`400` indicating the client’s request could not be processed, `404` indicating the resource could not be found on the server and `500` indicating an error occurred inside the server when processing the request.
+
+For more information about HTTP, consult [Wikipedia](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) or the [W3School](https://www.w3schools.com/whatis/whatis_http.asp).
+
+### HTML
+
+HTTP solves the problem of transferring a file from a computer to another. HTML, or the **H**yper **T**ext **M**arkup **L**anguage, solves the problem of encoding the style information of a web page. It represent the documentation as a tree of labels.
+
+// TBA
+
+For more information about the HTML, consult [Wikipedia](https://en.wikipedia.org/wiki/HTML) or [W3School](https://www.w3schools.com/whatis/whatis_html.asp).
