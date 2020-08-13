@@ -16,7 +16,7 @@ Now, open FlightRadar24 (linked above) in your browser (a modern version of Chro
 
 Write a simple program to verify the your guess in this section.
 
-URL:
+**Hint**: you are requesting https://data-live.flightradar24.com/zones/fcgi/feed.js for the flight data. One example request is to https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=31.53,30.90,120.91,122.17&faa=1&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1. Explore what does each parameter means so that you can gain some clue about how to generate your own request in next section.
 
 ## Implement your Cralwer
 
