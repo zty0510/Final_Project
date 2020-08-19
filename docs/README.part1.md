@@ -66,6 +66,8 @@ Now you have some idea of what requests you need to send to get the list of airp
   - The depature airport and the arrival airport’s IATA code of the airplane.
 
   Notice that you are required to store the information you get from FlightRadar24 to a temporary file, a common practice on Linux is to store it under `/tmp`. You should give the temporary file with a predictable name so that you can find it in the future when you need to access it. Before you store the file, you may need to serialize the data with some format like JSON.
+  
+  **Hint**: You may need to come up with a way to convert the central coordinate and range representation in this project to one that the API of FlightRadar24 or Flightware could understand before sending it to the server. This involves some Geometry on the sphere. However, your conversion could be an approximate one.
 
 Write a simple program to get the above information with all the information within 20nm to someone on campus of ShanghaiTech with your crawler every 10 seconds and display it in a beautiful way, prepare to explain how the program works to the TAs.
 
