@@ -21,6 +21,8 @@ Prepare to explain your answers to those questions to a TA.
 
 ### FlightRadar24
 
+![The complete loaded FlightRadar24 site](./img/flightradar24.png)
+
 Follow this section is you choose to crawl FlightRadar24 for your data. Jump to next section if you are using Flighware.
 
 Now, open FlightRadar24 (linked above) in your browser (a modern version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser. Wait until the site is fully loaded and starts to display the location of airplanes, go to the `network` tab of your developer tools. Explore the requests your browser sent out and response from the server. Determine which part of the requests is related to the dynamic updating the the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
@@ -34,6 +36,8 @@ Write a simple program to verify the your guess in this section and prepare to e
 **Hint**: you are requesting https://data-live.flightradar24.com/zones/fcgi/feed.js for the flight data. One example request is to https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=31.53,30.90,120.91,122.17&faa=1&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1. Explore what does each parameter means so that you can gain some clue about how to generate your own request in next section.
 
 ### Flightware
+
+![The completely loaded Flightware site](./img/flightware.png)
 
 Follow this section is you choose to crawl Flightware for your data.
 

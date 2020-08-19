@@ -4,9 +4,11 @@ In this week, you are going to control the GPIO pins to light LEDs accordding to
 
 ## Lit the LED
 
-We first try to control a single LED with the GPIO interface of yout Raspberry Pi. First connect a LED to the board following the [documentation](https://www.raspberrypi.org/documentation/usage/gpio/) of the Raspberry Pi (and other online resources, like [this](https://thepihut.com/blogs/raspberry-pi-tutorials/27968772-turning-on-an-led-with-your-raspberry-pis-gpio-pins)). Write down the pin number you are connecting the LED to. When doing this task, keep the safety of yourself and the board in mind. Remove the power when you are modifing the circuit.
+We first try to control a single LED with the GPIO interface of yout Raspberry Pi. First connect a LED to the board following the [documentation](https://www.raspberrypi.org/documentation/usage/gpio/) of the Raspberry Pi (and other online resources, like [this](https://thepihut.com/blogs/raspberry-pi-tutorials/27968772-turning-on-an-led-with-your-raspberry-pis-gpio-pins) or [this](https://zhuanlan.zhihu.com/p/73634679) in Chinese). Write down the pin number you are connecting the LED to. When doing this task, keep the safety of yourself and the board in mind. Remove the power when you are modifing the circuit.
 
-To access the GPIO interface on your Raspberry Pi, you are going to use a Python library called GPIO Zero which should already been installed on your Pi. Read the [documentation](https://gpiozero.readthedocs.io/en/stable/) ()of the library, learn how to control the blink of the LED you connected to the board. Then write a simple program which allows the LED you connected to the Pi to blink at a certain frequency the user inputs (e.g., 1 Hz). Be prepared to expian the circuit you built and the program you wrote to the TAs.
+![](https://cdn.shopify.com/s/files/1/0176/3274/files/LEDs-BB400-1LED_bb_grande.png)
+
+To access the GPIO interface on your Raspberry Pi, you are going to use a Python library called GPIO Zero which should already been installed on your Pi. Read the [documentation](https://gpiozero.readthedocs.io/en/stable/) of the library, learn how to control the blink of the LED you connected to the board. Then write a simple program which allows the LED you connected to the Pi to blink at a certain frequency the user inputs (e.g., 1 Hz). Be prepared to expian the circuit you built and the program you wrote to the TAs.
 
 ## Integrate the LED with Your Crawler
 
