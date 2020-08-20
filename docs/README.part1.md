@@ -12,7 +12,7 @@ In this section, you are going to explore the schema of request and response of 
 
 Many well-written high-level packages are there for you to send request to a HTTP server and get response from it (called HTTP client library formally) in Python. A package called `requests`, which could be installed with PyPI, is the most commonly used and is recommended for this project. Some other packages, like `urllib3`, provide the same functionality but is more complicated to use. If you are a real power user, you can even set up a raw TCP connection to the server with the `socket` package and generate/parse HTTP request/response yourself. Before you start, you are to understand how to use your tools. Read the documentation of [`requests`](https://requests.readthedocs.io/en/master/) or any other HTTP client library you choose to use, and answer the following questions:
 
-*  How to send a HTTP `GET` request to a URL, for example, the home page of ShanghaiTech?  (You can also use other smaller websites to get started, for example, the [pwd man page](http://linuxcommand.sourceforge.net/lc3_man_pages/pwdh.html). )
+*  How to send a HTTP `GET` request to a URL, for example, the home page of ShanghaiTech or `http://example.com/`?
 * Which format of URL does the package accept? Is `https://www.shanghaitech.edu.cn/` a legal URL? How about `sist.shanghaitech.edu.cn`?
 * How to determine if the request is successful? For example, what is the status code you get from requesting `https://httpbin.org/status/400`? Is it a status code indicating a successful processed request?
 * How to get the response body for a request? For example, how will you get the content of `https://tools.ietf.org/rfc/rfc2616.txt` with your tool in Python?
