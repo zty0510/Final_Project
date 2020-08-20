@@ -14,8 +14,8 @@ Many well-written high-level packages are there for you to send request to a HTT
 
 *  How to send a HTTP `GET` request to a URL, for example, the home page of ShanghaiTech?  (You can also use other smaller websites to get started, for example, the [pwd man page](http://linuxcommand.sourceforge.net/lc3_man_pages/pwdh.html). )
 * Which format of URL does the package accept? Is `https://www.shanghaitech.edu.cn/` a legal URL? How about `sist.shanghaitech.edu.cn`?
-* How to determine if the request is successful?
-* How to get the response body for a request?
+* How to determine if the request is successful? For example, what is the status code you get from requesting `https://httpbin.org/status/400`? Is it a status code indicating a successful processed request?
+* How to get the response body for a request? For example, how will you get the content of `https://tools.ietf.org/rfc/rfc2616.txt` with your tool in Python?
 
 Prepare to explain your answers to those questions to a TA.
 
