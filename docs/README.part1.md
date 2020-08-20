@@ -12,7 +12,7 @@ In this section, you are going to explore the schema of request and response of 
 
 Many well-written high-level packages are there for you to send request to a HTTP server and get response from it (called HTTP client library formally) in Python. A package called `requests`, which could be installed with PyPI, is the most commonly used and is recommended for this project. Some other packages, like `urllib3`, provide the same functionality but is more complicated to use. If you are a real power user, you can even set up a raw TCP connection to the server with the `socket` package and generate/parse HTTP request/response yourself. Before you start, you are to understand how to use your tools. Read the documentation of [`requests`](https://requests.readthedocs.io/en/master/) or any other HTTP client library you choose to use, and answer the following questions:
 
-*  How to send a HTTP `GET` request to a URL, for example, the home page of ShanghaiTech or `http://example.com/`?
+*  How to send a HTTP `GET` request to a URL, for example, the home page of ShanghaiTech?  (You can also use other smaller websites to get started, for example, the [pwd man page](http://linuxcommand.sourceforge.net/lc3_man_pages/pwdh.html). )
 * Which format of URL does the package accept? Is `https://www.shanghaitech.edu.cn/` a legal URL? How about `sist.shanghaitech.edu.cn`?
 * How to determine if the request is successful? For example, what is the status code you get from requesting `https://httpbin.org/status/400`? Is it a status code indicating a successful processed request?
 * How to get the response body for a request? For example, how will you get the content of `https://tools.ietf.org/rfc/rfc2616.txt` with your tool in Python?
@@ -25,13 +25,14 @@ Prepare to explain your answers to those questions to a TA.
 
 Follow this section if you choose to crawl FlightRadar24 for data. Jump to next section if you are using FlightAware.
 
-Now, open FlightRadar24 (linked above) in your browser (a modern version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser. Wait until the site is fully loaded and starts to display the location of airplanes, go to the `network` tab of your developer tools. Explore the requests your browser sent out and response from the server. Determine which part of the requests is related to the dynamic updating the the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
+Now, open FlightRadar24 (linked above) in your browser (a modern version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser. Wait until the site is fully loaded and starts to display the location of airplanes, go to the `network` tab of your developer tools. Explore the requests your browser sent out and response from the server. Determine which part of the requests is related to the dynamic updating of the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
 
 - Write down the URL of the requests and take a guess of what each part of the parameters means;
+- Determine what method is used for each request;
 - Determine the format of the response and find a way to parse it to a structured one that Python could understand;
 - Determine the meaning of each field of the response. You can do this by comparing the response with the displayed values on the web page.
 
-Write a simple program to verify the your guess in this section and prepare to explain your answers and program to a TA.
+Write a simple program to verify your guess in this section and prepare to explain your answers and program to a TA.
 
 **Hint**: you are requesting https://data-live.flightradar24.com/zones/fcgi/feed.js for the flight data. One example request is to https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=31.53,30.90,120.91,122.17&faa=1&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1. Explore what does each parameter means so that you can gain some clue about how to generate your own request in next section.
 
@@ -39,39 +40,39 @@ Write a simple program to verify the your guess in this section and prepare to e
 
 ![The completely loaded Flightware site](./img/flightware.png)
 
-Follow this section is you choose to crawl Flightware for your data.
+Follow this section is you choose to crawl FlightAware for your data.
 
-Now, open Flightware (linked above) in your browser (a modern version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser. Wait until the site is fully loaded and starts to display the location of airplanes, go to the `network` tab of your developer tools. Explore the requests your browser sent out and response from the server. Determine which part of the requests is related to the dynamic updating the the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
+Now, open FlightAware (linked above) in your browser (a modern version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser. Wait until the site is fully loaded and starts to display the location of airplanes, go to the `network` tab of your developer tools. Explore the requests your browser sent out and response from the server. Determine which part of the requests is related to the dynamic updating of the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
 
 - Write down the URL of the requests and take a guess of what each part of the parameters means;
-- Determine what method is used for each requests;
+- Determine what method is used for each request;
 - Determine the format of the response and find a way to parse it to a structured one that Python could understand;
-- Determine the meaning of each field of the response. You can do this by compare the response with the displayed values on the web page or take a guess of the meaning of the tags in the response from the server.
+- Determine the meaning of each field of the response. You can do this by comparing the response with the displayed values on the web page or take a guess of the meaning of the tags in the response from the server.
 
-Write a simple program to verify the your guess in this section and prepare to explain your answers and program to a TA.
+Write a simple program to verify your guess in this section and prepare to explain your answers and program to a TA.
 
 **Hint**: You are requesting https://flightaware.com/ajax/vicinity_aircraft.rvt for the flight data. A possible request is to https://flightaware.com/ajax/vicinity_aircraft.rvt?&minLon=109.0283203125&minLat=-8.59954833984375&maxLon=180&maxLat=27.0703125&token=e70b744ef39ffcbc8e52cb8caa9619e55ced9bb1. Explore what does each parameter means so that you can gain some clue about how to generate your own request in next section. If your program simply request this URL, you will sometimes get no data and a HTTP 400 or 500 status code indicating an error. This probably means your token (i.e., the `token` parameter in the request. In the example above, it is `e70b744ef39ffcbc8e52cb8caa9619e55ced9bb1`) has expired and needs you to update it.
 
-There are two ways to update the token. The first one is the easiest. You open a new browser tab and load the Flightware website. Then you can copy down the newly generated token from the dev tool and paste it to your script. The down side of the method is that you need to do it for every few hours before your token expired. Another method is to find the request where the token is responsed from the server and request the URL periodically to update it. This method requires some advanced understanding of web development.
+There are two ways to update the token. The first one is easier. You open a new browser tab and load the FlightAware website. Then you can copy down the newly generated token from the dev tool and paste it to your script. The down side of the method is that you need to do it for every few hours before your token gets expired. Another method is to find the request where the token is responded from the server and request the URL periodically to update it. This method requires some advanced understanding of web development.
 
-## Implement your Cralwer
+## Implement your Crawler
 
-Now you have some idea of what requests you need to send to get the list of airplanes in a certain area and the next step is to implement the crawler in this project. Now implement the crawler in the `Fr24Crawler` class in `data_source/fr24_crawler.py`. Your implementation should follow the following specifications:
+Now that you have some idea of what requests you need to send to get the list of airplanes in a certain area, the next step is to implement the crawler in this project. Now implement the crawler in the `Fr24Crawler` class in `data_source/fr24_crawler.py`. Your implementation should follow the following specifications:
 
 - `__init__(self, loc, rng)`: `loc` is a tuple of two `float`-typed numbers indicating the coordinate where the user is at. The first item in `loc` (i.e., `loc[0]`) is the latitude of the user and the second item is the longitude of the user. `rng` is a `float`-typed number in nautical miles (nm, 海里). You should include all the airplanes that is less than `rng` nautical miles with the user. In this method, initialize your crawler with those parameter.
 
-- `get_data_once(self)`: This method should perform a batch of requests, parse them and return all the airplane that is in range of `rng` nm of the user at `loc` at this time and store them in a temporary file (for further use in the following sub-project). You are free to design your own data type of storing as long as it contains all the following information of every airplane:
+- `get_data_once(self)`: This method should perform a batch of requests, parse them and return all the airplane that is in range of `rng` nm of the user at `loc` at this time and store them in a temporary file (for further use in the following sub-project). You are free to design your own data type of storing as long as it contains all of the following information of every airplane:
 
-  - The longtitude and the latitude (经纬度) of the airplane;
+  - The longitude and the latitude (经纬度) of the airplane;
   - The heading (航向) of the airplane;
   - The altitude (海拔高度) of the airplane;
   - The ground speed (地速), the speed of the airplane related to the ground;
   - The squawk number (应答机编号), registration number (国籍注册号) and flight number (航班号) of the flight;
-  - The depature airport and the arrival airport’s IATA code of the airplane.
+  - The departure airport and the arrival airport’s IATA code of the airplane.
 
   Notice that you are required to store the information you get from FlightRadar24 to a temporary file, a common practice on Linux is to store it under `/tmp`. You should give the temporary file with a predictable name so that you can find it in the future when you need to access it. Before you store the file, you may need to serialize the data with some format like JSON.
   
-  **Hint**: You may need to come up with a way to convert the central coordinate and range representation in this project to one that the API of FlightRadar24 or Flightware could understand before sending it to the server. This involves some Geometry on the sphere. However, your conversion could be an approximate one.
+  **Hint**: You may need to come up with a way to convert the central coordinate and range representation in this project to one that the API of FlightRadar24 or FlightAware could understand before sending it to the server. This involves some geometry on the sphere. However, your conversion could be an approximate one.
 
 Write a simple program to get the above information with all the information within 20nm to someone on campus of ShanghaiTech with your crawler every 10 seconds and display it in a beautiful way, prepare to explain how the program works to the TAs.
 

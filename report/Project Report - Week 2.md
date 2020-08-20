@@ -15,9 +15,9 @@ Please submit this report as a PDF file along with your code to receive full sco
 
 ## Control the LED
 
-- Describe how you connect the LED to your Pi? You could answer this question with a diagram of your system;
-- What functions or classes you use to control the LED? How could you determine which LED to control in you code if multiple LEDs present in the system?
+- Describe how you connect the LED to your Pi. You could answer this question with a diagram of your system;
+- What functions or classes did you use to control the LED? How did you determine which LED to control in you code when multiple LEDs were presented in the system?
 
 ## Integration with the Crawler
 
-- How you implement in [`state.py`](http://state.py) such that the behavior of the class could be observed when we run `state.py` directly and importing anything from the file should not cause the demo to be run?
+- What did you implement in [`state.py`](http://state.py) so that the behavior of the class could be observed when running `state.py` directly while importing anything from the file would not cause the demo to be run?

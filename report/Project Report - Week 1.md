@@ -15,11 +15,11 @@ Please submit this report as a PDF file along with your code to receive full sco
 
 ## Data Source
 
-- Write down the URLs you requested for the flight data from FlightRadar24 and describe what each part of the URL means and the HTTP method used for each URL.
-- What format the the response of each requested URL you sent? How could you convert it to a structured way that Python could understand?
+- Write down the URLs you requested for the flight data from FlightRadar24 or FlightAware and describe what each part of the URL means and the HTTP method used for each URL.
+- In which format was the response of each requested URL you sent? How did you convert it to a structured way that Python could understand?
 - What does each part of the response means? Use a minimal response example to explain.
 
 ## Implementation
 
-- What packages and modules you used in this part for get flight data from the FlightRadar24 server and parse the result? List them and describe the functionality of each of them in this project;
-- How you convert the central point and range given for this project to the format FlightRadar24 could understand?
+- What packages and modules did you use in this part to get flight data from FlightRadar24 or FlightAware server and parse the result? List them and describe the functionality of each of them in this project;
+- How did you convert the central point and range given for this project to the format FlightRadar24 or FlightAware could understand?
