@@ -15,12 +15,12 @@ Read the description above, open a real CLI program (e.g., the interactive Pytho
 - How could you get input from the user? What functions can you use in Python?
 - How could you feedback the result to the user?
 
-Let's get down to implement your controller in `cli/cli.py`.
+Let's get down to implement your controller in function `_main()` of `cli/cli.py`.
 
 Your program should be able to control the following parameters of your crawler and LED:
 
 - The central coordinate and the range of the data the crawler is going to crawl;
-- The frequency of fetching data from the FlightRadar24 website;
+- The frequency of fetching data from the flight tracing website website;
 - The way how your LED works. For example, change between different scheme of working or simply change the frequency of how it blinks.
 
 You need to design a working scheme of how to represent each one of the parameters in your CLI. For example, in our design, we use `set coord 30 104` to ask the program to change the central coordinate to 30N,104E. You are allowed to design your own way of representing each of the commands in your program. You should also include a command in your program to display all the parameters currently in use.
@@ -31,6 +31,8 @@ You may have noticed that the program you are currently writing works separately
 - Use the IPC primitives provided by the Python `multiprocessing` module. Read `main.py`, understand how it create two processes. Then read the documentation of the `multiprocessing` module. You can figure out what primitive to use and how to use it;
 - Use the UNIX socket. You can also use the UNIX domain socket provided by Linux. Refer the manual page and some kind of system programming guide if you want to try this approach;
 - Use some kind of key-value store. This is a totally overkill for this project. However, many large-scale projects will use this approach. This requires you to set up some kind of key-value store database like `redis` on your machine and use it for data transferring.
+
+Test your CLI by running `main.py` directly. `main.py` will start your cralwer, your LED conrtoller and this CLI for you.
 
 Following is how our CLI program outputs:
 
@@ -51,8 +53,8 @@ In this part of the project, you are writing a simple web control panel for your
 
 First, read the [documentation](https://flask.palletsprojects.com/en/1.1.x/) of Flask. Learn how to do the following things:
 
-- How to serve the request sent from the client for a specific path? For example, if a request is requesting the path `\\public` on your server and another one is requesting `\\confidential` on your server, how could you distinguish them and send different responses?
-- How to serve different request methods? For example, one request is sent to your server for the path `\\public` with a `GET` method and another one with a `POST` method, how could you distinguish them and send different responses?
+- How to serve the request sent from the client for a specific path? For example, if a request is requesting the path `/public` on your server and another one is requesting `/confidential` on your server, how could you distinguish them and send different responses?
+- How to serve different request methods? For example, one request is sent to your server for the path `/public` with a `GET` method and another one with a `POST` method, how could you distinguish them and send different responses?
 - How to render a HTML template in Flask? How to create a simple template in Flask?
 - How to get the form data the user send to your server in a `POST` request? What data type is it?
 
@@ -64,15 +66,15 @@ Then read this [documentation](https://developer.mozilla.org/en-US/docs/Learn/HT
 
 Prepare your answer in your project report of this week.
 
-Let’s get down to the real work. You are filling the `web_server\\server.py` file this week. The  of this file is provided. The script is already good for run except that you will get a HTTP `500` error every time you access a page on it. You can run it by `python3 web_server\\server.py` and open the page it serves by opening `http://<pi-ip>:8999` in your browser. Walk through the script, make sure you understand the meaning of each part of the code.
+Let’s get down to the real work. You are filling the `web_server/server.py` file this week. The  of this file is provided. The script is already good for run except that you will get a HTTP `500` error every time you access a page on it. You can run it by `python3 web_server/server.py` and open the page it serves by opening `http://<pi-ip>:8999` in your browser. Walk through the script, make sure you understand the meaning of each part of the code.
 
 Then, you need to implement the control panel at `http://<pi-ip>:8999/config`. The control panel should support changing the following parameter:
 
 - The central coordinate and the range of the data the crawler is going to crawl;
-- The frequency of fetching data from the FlightRadar24 website;
+- The frequency of fetching data from the flight tracing website;
 - The way how your LED works. For example, change between different scheme of working or simply change the frequency of how it blinks.
 
-Your control panel should display the parameters currently in use to the visitor and present a simple form to the user which allows the user to change those parameters. Change in the parameters should be reflected on the behavior of the LED and crawler when the next time you are fetching data from FlightRadar24. You need to think about how to transfer the changed parameters to the crawler (hint below) and which part of your crawler should be changed.
+Your control panel should display the parameters currently in use to the visitor and present a simple form to the user which allows the user to change those parameters. Change in the parameters should be reflected on the behavior of the LED and crawler when the next time you are fetching data from flight tracing website. You need to think about how to transfer the changed parameters to the crawler (hint below) and which part of your crawler should be changed.
 
 Once you finish your implemantation, run `python3 main.py`, verify if your server works and whether the changes in those parameters will influence the behavior of your crawler and LEDs.
 

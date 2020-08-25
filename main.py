@@ -17,33 +17,77 @@
 # ask on Piazza.
 
 from state import State
+from data_source.fr24_crawler import Fr24Crawler
 from web_server.server import web_server
+from cli.cli import cli_start
 import os
+import sys
 import logging
+
+
+def _help():
+    print("Usage:")
+    print()
+    print("  {} --web | --cli".format(sys.argv[0]))
+    print()
+    print("If you choose to implement the CLI (easy level), run:")
+    print()
+    print("  {} --cli".format(sys.argv[0]))
+    print()
+    print("If you choose to implement the web server (advanced level), run:")
+    print()
+    print("  {} --web".format(sys.argv[0]))
+    print()
+
 
 if __name__ == "__main__":
     logger = logging.getLogger("si100b_proj:main")
     logger.setLevel("INFO")
+
+    if len(sys.argv) != 2:
+        logger.error("Except 1 argument, get {}.".format(len(sys.argv)-1))
+        _help()
+        exit(-1)
+    if not (sys.argv[1] == "--web" or sys.argv[1] == "--cli"):
+        logger.error("Invalid argument.")
+        _help()
+        exit(-1)
+    else:
+        flag = sys.argv[1]
+
     # Create a new process.
     # `fork()` is a UNIX syscall that creates a new process.
     # `os.fork` is a Python wrapper of it. See `man fork` for more information.
     pid = os.fork()
     if (pid == 0):
         # The child process.
-        # In this process, we run the web server.
+        # In this process, we run the web server / cli.
         ppid = os.getppid()
         try:
-            web_server.run(host="0.0.0.0", port=9000)
+            if flag == '--web':
+                web_server.run(host="0.0.0.0", port=9000)
+            elif flag == '--cli':
+                cli_start()
         except KeyboardInterrupt:
-            logger.warning("Web server exits.")
+            logger.warning("Control panel exits.")
             os.kill(ppid)
     else:
         # The parent process.
-        # In this process, we run the cralwer and LED controller.
-        try:
-            state = State()
-            state.spin()
-        except KeyboardInterrupt:
-            # The process is being killed, let the child process exit.
-            logger.warning("Crawler exits.")
-            os.kill(pid)
+        # In this process, we run the cralwer.
+        cralwer_pid = os.fork()
+        if cralwer_pid == 0:
+            ppid = os.getppid()
+            try:
+                state = State()
+                state.spin()
+            except KeyboardInterrupt:
+                os.kill(ppid)
+        else:
+            try:
+                cralwer = Fr24Crawler((0, 0), 0)
+                cralwer.spin()
+            except KeyboardInterrupt:
+                # The process is being killed, let the child process exit.
+                logger.warning("Crawler exits.")
+                os.kill(pid)
+                os.kill(cralwer_pid)

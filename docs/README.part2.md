@@ -19,7 +19,7 @@ In the class `State` of `state.py`, we have already initialized some attributes 
 - Read on the latest data from FlightRadar24 or FlightAware from the file you stored in the last week's project;
 - Control on and off of the 4 LEDs you have on the board based on the traffic data. You can design your own scheme of how the LEDs change when the traffic data changes. However, your design should be reproducible in a vast range of time of a day so that when checking your implementation the TAs could easily observe how the change in traffic will influence the behavior of your LEDs;
 
-Write a simple demo in the `state.py` such that the behavior of the class could be observed when we run `state.py` directly and importing anything from the file should not cause the demo to be run.
+Write a simple demo in the `state.py` such that the behavior of the class could be observed when we run `state.py` directly (with your cralwer running in the background) and importing anything from the file should not cause the demo to be run.
 
 Be prepared to explain how the class `State` and the demo works.
 

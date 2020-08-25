@@ -16,3 +16,6 @@ class Fr24Crawler:
 
     def get_data_once(self):
         raise NotImplementedError
+
+    def spin(self, interval=1):
+        raise NotImplementedError

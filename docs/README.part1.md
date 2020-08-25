@@ -74,6 +74,8 @@ Now that you have some idea of what requests you need to send to get the list of
   
   **Hint**: You may need to come up with a way to convert the central coordinate and range representation in this project to one that the API of FlightRadar24 or FlightAware could understand before sending it to the server. This involves some geometry on the sphere. However, your conversion could be an approximate one.
 
+- `spin(interval=1)`: Run `get_data_once(self)` every `interval` seconds.
+
 Write a simple program to get the above information with all the information within 20nm to someone on campus of ShanghaiTech with your crawler every 10 seconds and display it in a beautiful way, prepare to explain how the program works to the TAs.
 
 ## Submission
