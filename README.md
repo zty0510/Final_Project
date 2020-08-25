@@ -75,9 +75,11 @@ The 4 parts are:
 
 The specification for each part is located in `docs` directory of this repo. Check them for detailed requirements for each step.
 
+This project (esp. the framework itself) is only supposed to work in a modern Linux system. During the face-to-face check, your project should only run on the Debian Linux on the Pi we distributed to you. Checking the project using other devices or OS is considered invaild and will face score deduction. However, you are highly encouraged to implement and debug it on your local system.
+
 ## Co-operation with Your Teammate
 
-This project is a team project of two people. You are required to cooperate with your teammate in this project. You should write down how you divide the work with your teammate in your weekly project report. If the workload division is highly unbalanced, your team will probably not get full score from the project even if you finished all tasks.
+This project is a team project of 2-3 people. You are required to cooperate with your teammate in this project. You should write down how you divide the work with your teammate in your weekly project report. If the workload division is highly unbalanced, your team will probably not get full score from the project even if you finished all tasks.
 
 The best practice is to use git as the versioning tool and cooperating tool with your teammate. With git, you can have a clean split between the *development* phase and the *test* phase. Commonly, you will finish the development phase (writing your prototype) on your own computer (which means two of you could do it in parallel in some sense) then synchronize the code to the Pi and do your testing part.
 
@@ -122,8 +124,6 @@ For more information about HTTP, consult [Wikipedia](https://en.wikipedia.org/wi
 ### HTML
 
 HTTP solves the problem of transferring a file from a computer to another. HTML, or the **H**yper **T**ext **M**arkup **L**anguage, solves the problem of encoding the style information of a web page. It represents the documentation as a tree of labels.
-
-// TBA
 
 For more information about the HTML, consult [Wikipedia](https://en.wikipedia.org/wiki/HTML) or [W3School](https://www.w3schools.com/whatis/whatis_html.asp).
 
