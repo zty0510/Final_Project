@@ -30,7 +30,7 @@ Please submit this report as a PDF file along with your code to receive full sco
 ## Implementation
 
 - Describe the overall workflow of this part of this project, including answers to the following bulletin points.
-    - When will you update your graph, when the new data comes or when the user request comes?
-    - How would you store the data used for rendering the graph?
-    - How will you store the graph after being rendered by `matplotlib`?
+    - When do you update your graph? When the new data comes, or when the user request comes?
+    - How do you store the data used for rendering the graph?
+    - How do you store the graph after being rendered by `matplotlib`?
     - How is the image served to the user?
