@@ -1,6 +1,6 @@
 # SI 100B Project: Who is Flying over? - Week 4
 
-This week, we are going to visualize the data you crawled from FlightRadar24/FLightAware. Python and many third-party packages of it provide many excellent tools for you to do data processing and draw plots. `numpy` and `matplotlib` are the most used two of all available. In this part, you are going to utilize those two tools to do data aggregation over the data you crawled and display the result in plots in a web page on your web server in real time.
+This week, we are going to visualize the data you crawled from FlightRadar24/FlightAware. Python and many third-party packages of it provide many excellent tools for you to do data processing and draw plots. `numpy` and `matplotlib` are the most used two of all available. In this part, you are going to utilize those two tools to do data aggregation over the data you crawled and display the result in plots in a web page on your web server in real time.
 
 ## Before You Start
 
