@@ -1,6 +1,6 @@
 # SI 100B Project: Who is Flying over?
 
-Welcome to the python programming project for SI 100B. In this project, you are going to build a web crawler that runs on a Raspberry Pi (a mini computer) to obtain real time flight data from a website called FlightRadar24 (or an alternative called FlightAware),  according to different scenarios, control LED lights on an external circuit through the GPIO interface of your Raspberry Pi and visualize your data analysis through graphs or a website. To be specific, you will build:
+Welcome to the python programming project for SI 100B. In this project, you are going to build a web crawler that runs on a Raspberry Pi (a mini computer) to obtain real time flight data from a website called FlightRadar24 (or an alternative called FlightAware). You are going to control LED lights on an external circuit through the GPIO interface of your Raspberry Pi according to different scenarios and visualize your data analysis through graphs or a website. To be specific, you will build:
 
 1. A crawler to get data from a flight information website;
 
@@ -29,7 +29,7 @@ First, you need to connect your Raspberry Pi to the Internet through Wi-Fi or th
 
 After the Pi boots up, the user interface will appear on the touch screen of your Pi. If you choose to use the wire connection, just plug in a cable to the Ethernet port and the LED indicator on the port will turn on and blink which means a connection is established. Connecting to Wi-Fi requires you to attach a USB mouse and keyboard to your Pi or use the soft keyboard on the touch screen. Simply choose the network you want to connect to from the drop-down menu on the upper right corner of the screen and log in with your credentials if asked. A side note is that if you are connecting to the campus network via the ShanghaiTech Wi-Fi or through an Ethernet port, you may need to do web portal authentication as you will do for any other devices using those two networks. You can simply open the FireFox browser on your Pi or use those handy [scripts](https://github.com/ShanghaitechGeekPie/WifiLoginer).
 
-After connecting your Pi to the network, you are going to figure out ways of connecting to your Pi. There are two categories of ways of doing it. The first one is the simpiest. You are directly connecting a monitor and a set of keyboard and mouse to it. The second one is to connect to it with SSH via network. The second approach is harder but is recommended by the teaching team. We will give you ** bonus to your project if you choose the SSH way.
+After connecting your Pi to the network, you are going to figure out ways of extending I/O of your Pi. There are two ways of doing it. The first one is the simplest: you are directly connecting a monitor and a set of keyboard and mouse to it. The second one is to connect to it with SSH via network. The second approach is a little more complex but is recommended by the teaching team. We will give you ** bonus to your project if you choose the SSH way. Below are details for these two. 
 
 ### Connect with Keyboard and Mouse
 
@@ -93,7 +93,7 @@ This project (esp. the framework itself) is only supposed to work in a modern Li
 
 ## Collaborating with Your Teammate(s)
 
-The team size is 2 or 3. You need to describe how the workload is divided between the team members in your weekly project report. We take the workload division into consideration when grading.
+The team size is 2 or 3. You need to describe how the workload is divided among the team members in your weekly project report. We take the workload division into consideration when grading.
 
 The best practice is to use git as the versioning and collaborating tool with your teammate(s). With git, you can have a clean split between the *development* phase and the *test* phase. Commonly, you will finish the development phase (writing your prototype) on your own computer then synchronize the code to the Pi and complete your testing part.
 
