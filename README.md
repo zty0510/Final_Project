@@ -71,7 +71,7 @@ The 4 parts are:
 
 The specification for each part is located in` docs` directory of this repo. Check them for detailed requirements for each step.
 
-This project (esp. the framework itself) is only supposed to work in a modern Linux system. During the face-to-face check, your project should only run on the Debian Linux on the Pi from the teaching team. During the face-to-face checking, demostrating the project using other devices or OS is considered invalid and will face score deduction. However, you are highly encouraged to implement and debug it on your local system.
+This project (esp. the framework itself) is only supposed to work in a modern Linux system. During the face-to-face check, your project should only run on the Debian Linux on the Pi from the teaching team. During the face-to-face checking, demonstrating the project using other devices or OS is considered invalid and will face score deduction. However, you are highly encouraged to implement and debug it on your local system.
 
 ## Collaborating with Your Teammate(s)
 
@@ -83,11 +83,11 @@ The best practice is to use git as the versioning and collaborating tool with yo
 
 ### HTTP
 
-HTTP, or the Hyper-text Transfer Protocol, is the underlying protocols used by web server and your web browsers to transfer data. Generally, how the HTTP works is that the user agent (your web browser) initializes a connection to the web server and it sends information indicating what resources on the server it wants to access (the URL, like `https://sist.shanghaitech.edu.cn/`) and how it wants to access the resource (e.g., to retrieve or to modify? Formally, it is called method. Examples includes `GET` and `POST`). After receiving the request from the user agent, the server will send back the resources the user want along with a status code indicating the status of the request (is it successful? If an error occurred, is it the problem of the server or the client?).
+HTTP, or the Hyper-text Transfer Protocol, is the underlying protocols used by web server and your web browsers to transfer data. Generally, how the HTTP works is that the user agent (your web browser) initializes a connection to the web server and it sends information indicating what resources on the server it wants to access (the URL, like `https://sist.shanghaitech.edu.cn/`) and how it wants to access the resource (e.g., to retrieve or to modify? Formally, it is called method. Examples includes `GET` and `POST`). After receiving the request from the user agent, the server will send back the resources the user want along with a status code indicating the status of the request (is it successful? If an error has occurred, was it the problem of the server or the client?).
 
 An example of HTTP request / response is given below:
 
-The client (user agent) send out the following request
+The client (user agent) sends out the following request
 
 ```
 GET / HTTP/1.1
@@ -113,7 +113,7 @@ Content-Type: text/html; charset=utf-8
 </html>
 ```
 
-This conversation is basically for the client trying to get the `/` directory of the server `www.example.com`. The server reply with a `200` status code indicating the request is successful and the content of the requested resource is attached below the headers as `<html>....</html>`. Other possible status codes include `400` indicating the client’s request could not be processed, `404` indicating the resource could not be found on the server and `500` indicating an error occurred inside the server when processing the request.
+This conversation is basically for the client trying to get the `/` directory of the server `www.example.com`. The server replies with a `200` status code, indicating the request is successful and the content of the requested resource is attached below the headers as `<html>....</html>`. Other possible status codes include `400` indicating the client’s request could not be processed, `404` indicating the resource could not be found on the server and `500` indicating an error occurred inside the server when processing the request.
 
 For more information about HTTP, see the [W3School](https://www.w3schools.com/whatis/whatis_http.asp).
 
