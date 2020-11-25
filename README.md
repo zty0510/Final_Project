@@ -16,55 +16,37 @@ All your programs run on a Raspberry Pi.
 
 You should have received a batch of gears from the SI 100B teaching team. Please take good care of them and make sure they are in a sound condition when you return them to us. Below is a list of components we hand out. Please check yours against them. If there is anything missing or broken, contact us as soon as possible so that we can give you a replacement.
 
-| Item         | Quantity |
-| ------------ | -------- |
-| Raspberry Pi | 1        |
-| Touch Screen | 1        |
-| USB Charger  | 1        |
-| Breadboard   | 1        |
-| LED          | 4        |
-| DuPont line  | Several  |
+| Item               | Quantity |
+| ------------------ | -------- |
+| Raspberry Pi       | 1        |
+| LED GPIO connector | 1        |
+| USB Charger        | 1        |
+| LED                | 4        |
+| Ehernet cable      | 1        |
 
 First, you need to connect your Raspberry Pi to the Internet through Wi-Fi or the Ethernet port on your board. First, turn on the switch on the charger and connect your Pi to it. Your Pi will be powered up automatically. The red LED indicator on the corner of the board near the USB connector will light up if your Pi is on. The green LED indicator next to it will blink if your Pi’s SD card has been accessed.
 
-After the Pi boots up, the user interface will appear on the touch screen of your Pi. If you choose to use the wire connection, just plug in a cable to the Ethernet port and the LED indicator on the port will turn on and blink which means a connection is established. Connecting to Wi-Fi requires you to attach a USB mouse and keyboard to your Pi or use the soft keyboard on the touch screen. Simply choose the network you want to connect to from the drop-down menu on the upper right corner of the screen and log in with your credentials if asked. A side note is that if you are connecting to the campus network via the ShanghaiTech Wi-Fi or through an Ethernet port, you may need to do web portal authentication as you will do for any other devices using those two networks. You can simply open the FireFox browser on your Pi or use those handy [scripts](https://github.com/ShanghaitechGeekPie/WifiLoginer).
-
-After connecting your Pi to the network, you are going to figure out ways of extending I/O of your Pi. There are two ways of doing it. The first one is the simplest: you are directly connecting a monitor and a set of keyboard and mouse to it. The second one is to connect to it with SSH via network. The second approach is a little more complex but is recommended by the teaching team. We will give you ** bonus to your project if you choose the SSH way. Below are details for these two. 
+After connecting your Pi to the network, you are going to figure out ways of extending I/O of your Pi. There are two ways of doing it. The first one is the simplest: you are directly connecting a monitor and a set of keyboard and mouse to it. The second one is to connect to it with SSH via network. The second approach is a little more complex but is recommended by the teaching team. We will give you bonus to your project if you choose the SSH way. Below are details for these two. 
 
 ### Connect with Keyboard and Mouse
 
-The Pi itself is a single board computer that runs Linux. To make it fully functional, all you need to do is attaching a screen and a set of keyboard and mouse to it. Your Pi comes with a touch screen, on which you can operate. However, it is troublesome to debug your implementation of this project on the touch screen with the soft keyboard. It is suggested to attach a real monitor and a real set of keyboard and mouse to your Pi which could greatly speed up your debugging process.
+The Pi itself is a single board computer that runs Linux. To make it fully functional, all you need to do is attaching a screen and a set of keyboard and mouse to it. 
 
-The Pi comes with a HDMI port for connecting to your monitor and 4 USB ports for connecting with your mouse and keyboard. If you have compatible hardware, you can connect your Pi to them for a more convenient debugging experience. If you currently do not have them, you can choose to come to the computer lab in TBA. The hours of the lab will be announced on Piazza.
+The Pi comes with a HDMI port for connecting to your monitor and 4 USB ports for connecting with your mouse and keyboard. If you have compatible hardware, you can connect your Pi to them and use your Pi like what you will do with a normal computer. If you currently do not have them, you can choose to come to the computer lab in TBA. The hours of the lab will be announced on Piazza.
+
+After the Pi boots up, the user interface will appear on the screen. If you choose to use the wire connection, just plug in a cable to the Ethernet port and the LED indicator on the port will turn on and blink which means a connection is established. Alternatively, you can connect to Wi-Fi. Simply choose the network you want to connect to from the drop-down menu on the upper right corner of the screen and log in with your credentials if asked. A side note is that if you are connecting to the campus network via the ShanghaiTech Wi-Fi or through an Ethernet port, you may need to do web portal authentication as you will do for any other devices using those two networks. You can simply open the FireFox browser on your Pi or use those handy [scripts](https://github.com/ShanghaitechGeekPie/WifiLoginer).
 
 Alternatively, configuring your Pi with a SSH server and debugging on your own computer is also a feasible way.
 
 ### Connect with an SSH Terminal
 
-Then if you do not have any USB key board, mouse or monitor and do not wish to go to the computer lab every time you need to do your project, you may need to connect to it via SSH. To do so, you may need to enable SSH server on you Pi. SSH allows you to connect to your Pi from another computer securely in the same network so that you do not need to code on the small screen attached to your Pi. To enable SSH, simply follow the [instruction](https://www.raspberrypi.org/documentation/remote-access/ssh/)s in the official documentation (if you do not know how to open the terminal on your Pi, read [this article](https://magpi.raspberrypi.org/articles/terminal-help) first). If you have enabled SSH on your Pi, do remember to change your SSH login password. To change your password, simply run `passwd` on your terminal window. You may be prompted for your current password. If it is the case, the default password of your Pi is` raspberry`.
+Then if you do not have any USB key board, mouse or monitor, you may need to connect to the Pi via SSH.  SSH allows you to connect to your Pi from another computer securely in the same network. To enable SSH, simply follow the [instruction](https://www.raspberrypi.org/documentation/remote-access/ssh/)s in the official documentation. If you have enabled SSH on your Pi, do remember to change your SSH login password. To change your password, simply run `passwd` on your terminal window after login. You may be prompted for your current password. If it is the case, the default password of your Pi is` raspberry`.
 
-To connect to your Pi via SSH, you need an SSH client on your computer. If it is running macOS or Linux, your computer is shipped with an SSH client. If you are using Windows, you are recommended to use the [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Before connecting to your Pi , you need to know its IP address. On your Pi, run `ip addr` , you will get something like:
+To connect to your Pi via SSH, you also need an SSH client on your computer. If it is running macOS or Linux, your computer is shipped with an SSH client. If you are using Windows, you are recommended to use the [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10). To connect to your Pi this way, you will need to connect your Pi to your laptop with the ethernet. You will need an ethernet dongle for this purpose if your laptop is not equipped with ethernet ports.
 
-```
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether b8:27:eb:xx:xx:xx brd ff:ff:ff:ff:ff:ff
-    inet 172.30.15.68/24 brd 172.30.15.255 scope global dynamic noprefixroute eth0
-       valid_lft 64032sec preferred_lft 50367sec
-    inet6 fe80::3ccf:98ec:ef2:b064/64 scope link
-       valid_lft forever preferred_lft forever
-3: wlan0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether b8:27:eb:xx:xx:xx brd ff:ff:ff:ff:ff:ff
-```
+After connecting your Pi with your computer with cable, your computer and Pi will both negotiate a set of addresses in the same network called linked local address which could be used to connect to your Pi. Then in your terminal, you can connect to the Pi with `ssh pi@raspberrypi.local` . This way may not work out on some systems (esp. some version of Windows) with limited mDNS support, in this case, consult this [article](https://raspberrypi.stackexchange.com/questions/85747/setting-a-static-ip-from-boot-drive-headless-static-ip) or this [article](https://www.cnblogs.com/sheng9hhd/p/10294859.html) for workarounds.
 
-In this example, the IP address for the Pi is 172.30.15.68 (search for such a field in your output). You could run `ssh pi@172.30.15.68` (replace `172.30.15.68` withyour Pi’s IP) on your computer’s terminal to connect to it. 
-
-**Side note**: if your Pi is connected to your own router, you could only connect to it within the same network as your Pi (i.e., if you connect it to your own router, you will not be able to connect to it through the ShanghaiTech Wi-Fi network without extra configuration).
+This will not give your Pi access to the Internet which is needed for this project. You may also need to connect your Pi to the campus wireless network. To do this, you can follow this [documentation](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) or simply attach a screen and a set of keyboard and mouse to your Pi and connect to `ShanghaiTech` or `eduroam` network (you only need to do this for once and your Pi should be able to connect to the network next time). You may need to do network login via the web portal. In this case, you may use those handy [scripts](https://github.com/ShanghaitechGeekPie/WifiLoginer).
 
 ### Install Dependency
 
