@@ -85,7 +85,7 @@ Instead of describing some concepts like TCP/IP in a tedious way, this part of t
 
 ### A typical procedure of a network request
 
-When you type in `https://sist.shanghaitech.edu.cn/` (a **URL**) in your browser and wait for the fully-loaded version of SIST's website, you are actually watching your browser (a **client**) communicating with some computers in the clouds (a **server**). Specifically, your browser uses the URL you typed in to search for SIST server's IP and forges a TCP connection with the server in **3-Way Handshake Process**. After connecting with the server, your browser sends requests to the server in the from of **HTTP request** message. Then SIST's server receives the message and runs an application to process the request, after which an **HTTP response** message is sent back to your browser in a **HTML** form. If all of these processes work smoothly, you will see a neat layout of the SIST website after your browser finishes resolving the HTML message.
+When you type in `https://sist.shanghaitech.edu.cn/` (a **URL**) in your browser and wait for the fully-loaded version of the SIST's website, you are actually watching your browser (a **client**) communicating with some computers in the clouds (a **server**). Specifically, your browser uses the URL you typed in to search for SIST server's IP and forges a TCP connection with the server in **3-Way Handshake Process**. After connecting with the server, your browser sends **HTTP request** to the server. Then SIST's server receives the message and runs an application to process the request, after which an **HTTP response** message is sent back to your browser in a **HTML** form. If all of these processes work smoothly, you will see a neat layout of the SIST website after your browser finishes resolving the HTML message.
 
 ### HTTP Basics
 
@@ -93,17 +93,17 @@ HTTP, or the Hyper-text Transfer Protocol, is the underlying protocols used by w
 
 An **HTTP request** includes 
 
-- a **request line** - this includes how to forge a connection with the resource (a.k.a. **request method**) including  `GET` and `POST` , which the resources you want to access (signatured by a **URL**), and the HTTP version;
+- a request line - this includes how to forge a connection with the resource (a.k.a. **request method**) including  `GET` and `POST` , which the resources you want to access (signatured by a **URL**), and the HTTP version;
 - **request header fields** - they are basically some key-value pairs indicating information of the request;
 - an empty line;
 - and an optional message body - this is what you need to consider when you want to post something.
 
 An **HTTP response** includes
 
-- a status line - this includes HTTP version,  **status code** (this indicates the status of the request - is it successful? If an error has occurred, was it the problem of the server or the client?), and reason message;
-- response header fields - similar with that of an HTTP request but indicating response information;
+- a status line - this includes HTTP version, **status code** (this indicates the status of the request - is it successful? If an error has occurred, was it the problem of the server or the client?), and reason message;
+- response header fields - this is similar with that of an HTTP request but indicates response information;
 - an empty line;
-- and an optional message body - its form depends on the value of a key called `Content-Type`  specified in response's response header fields.
+- and an optional message body - its form depends on the value of a key named `Content-Type` , which is specified in response's response header fields.
 
 An example of **HTTP request** / **response** is given below. 
 
@@ -142,3 +142,18 @@ For more information about HTTP, see the [W3School](https://www.w3schools.com/wh
 HTTP solves the problem of transferring a file from a computer to another. HTML, or the **H**yper **T**ext **M**arkup **L**anguage, solves the problem of encoding the style information of a web page. It represents the documentation as a tree of labels.
 
 For more information about the HTML, see [W3School](https://www.w3schools.com/whatis/whatis_html.asp).
+
+### What is web crawling?
+
+After having a general idea of what is mentioned above, it is a reasonable time for you to understand what a web crawling is and how it works.
+
+In theory, web crawling or scraping is the practice of gathering data through any means other than a program directly interacting with an API (or, obviously, through a human using a web browser). This is most commonly accomplished by writing an automated program that queries a web server, requests data, get response and then parses the response message to extract needed information.
+
+Specifically, for a general web crawler, it follows the following working pipeline:
+
+- retrieving HTML data from a domain name; 
+- parsing that data for target information;
+- storing the target information;
+- Optionally, moving to another page to repeat the process.
+
+In this project, you will implement the first three of them. Have fun with it!

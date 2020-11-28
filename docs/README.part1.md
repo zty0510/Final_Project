@@ -2,23 +2,6 @@
 
 In this week, we are finishing the very first yet important task in this project - getting reliable flight information. We are getting the data from websites that provide real-time flight data feed by writing a crawler (网络爬虫程序). What those websites do is distributing the radio receivers across the world in a crowd-sourcing way to pick up the ADB-S signal and distribute the data via the Internet. The most widely used websites of this kind are FlightRadar24 (https://www.flightradar24.com/) and FlightAware (https://flightaware.com/live/ ). 
 
-## What is web crawling?
-
-In theory, web crawling or scraping is the practice of gathering data through any means other than a program interacting with an API (or, obviously, through a human using a web browser). This is most commonly accomplished by writing an automated program that queries a web server, requests data (usually in the form of the HTML and other files that comprise web pages), and then parses that data to extract needed information.
-
-For a general web crawler, it follows the following working pipeline:
-
-- retrieving HTML data from a domain name; 
-- parsing that data for target information;
-- storing the target information;
-- Optionally, moving to another page to repeat the process.
-
-In this project, you will implement the first three of them.
-
-**What is a web crawler? How does it work? !link.**
-
-**What is json & computation of lat and lon- ppt**
-
 ## The Data Source
 
 The first step for writing a web crawler is to determine what requests you want to send and how you will parse the response from the server. Generally, each website has a slightly different schema of request and response and you will need to explore the patterns in request and response. However, since almost all those requests and responses are using HTTP, the underlying principle is the same.
