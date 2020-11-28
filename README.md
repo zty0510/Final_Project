@@ -79,13 +79,33 @@ The team size is 2 or 3. You need to describe how the workload is divided among 
 
 The best practice is to use git as the versioning and collaborating tool with your teammate(s). With git, you can have a clean split between the *development* phase and the *test* phase. Commonly, you will finish the development phase (writing your prototype) on your own computer then synchronize the code to the Pi and complete your testing part.
 
-## Basics of HTTP and HTML
+## Web basics
 
-### HTTP
+Instead of describing some concepts like TCP/IP in a tedious way, this part of the document is aimed at giving you some general ideas of web and (hopefully) helping you to understand how a web crawler works better in the following READMEs. So a basic understanding is enough - but if you are too confused to have a general idea, just search for the relative bold words (粗体字) in your browser. We don't specify every one of them since we don't want to flood you with tons of new and not-so-relevant ideas.
 
-HTTP, or the Hyper-text Transfer Protocol, is the underlying protocols used by web server and your web browsers to transfer data. Generally, how the HTTP works is that the user agent (your web browser) initializes a connection to the web server and it sends information indicating what resources on the server it wants to access (the URL, like `https://sist.shanghaitech.edu.cn/`) and how it wants to access the resource (e.g., to retrieve or to modify? Formally, it is called method. Examples includes `GET` and `POST`). After receiving the request from the user agent, the server will send back the resources the user want along with a status code indicating the status of the request (is it successful? If an error has occurred, was it the problem of the server or the client?).
+### A typical procedure of a network request
 
-An example of HTTP request / response is given below:
+When you type in `https://sist.shanghaitech.edu.cn/` (a **URL**) in your browser and wait for the fully-loaded version of SIST's website, you are actually watching your browser (a **client**) communicating with some computers in the clouds (a **server**). Specifically, your browser uses the URL you typed in to search for SIST server's IP and forges a TCP connection with the server in **3-Way Handshake Process**. After connecting with the server, your browser sends requests to the server in the from of **HTTP request** message. Then SIST's server receives the message and runs an application to process the request, after which an **HTTP response** message is sent back to your browser in a **HTML** form. If all of these processes work smoothly, you will see a neat layout of the SIST website after your browser finishes resolving the HTML message.
+
+### HTTP Basics
+
+HTTP, or the Hyper-text Transfer Protocol, is the underlying protocols used by web server and your web browsers to transfer data. In this part, we will describe **HTTP request** and **response** in detail - since this is important for your project.
+
+An **HTTP request** includes 
+
+- a **request line** - this includes how to forge a connection with the resource (a.k.a. **request method**) including  `GET` and `POST` , which the resources you want to access (signatured by a **URL**), and the HTTP version;
+- **request header fields** - they are basically some key-value pairs indicating information of the request;
+- an empty line;
+- and an optional message body - this is what you need to consider when you want to post something.
+
+An **HTTP response** includes
+
+- a status line - this includes HTTP version,  **status code** (this indicates the status of the request - is it successful? If an error has occurred, was it the problem of the server or the client?), and reason message;
+- response header fields - similar with that of an HTTP request but indicating response information;
+- an empty line;
+- and an optional message body - its form depends on the value of a key called `Content-Type`  specified in response's response header fields.
+
+An example of **HTTP request** / **response** is given below. 
 
 The client (user agent) sends out the following request
 
@@ -122,4 +142,3 @@ For more information about HTTP, see the [W3School](https://www.w3schools.com/wh
 HTTP solves the problem of transferring a file from a computer to another. HTML, or the **H**yper **T**ext **M**arkup **L**anguage, solves the problem of encoding the style information of a web page. It represents the documentation as a tree of labels.
 
 For more information about the HTML, see [W3School](https://www.w3schools.com/whatis/whatis_html.asp).
-
