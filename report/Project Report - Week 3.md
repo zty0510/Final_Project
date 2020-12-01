@@ -1,6 +1,6 @@
 # Project Report - Week 3
 
-# SI100B Project Report - Web Server
+# SI100B Project Report - Control Panel
 
 Please submit this report as a PDF file along with your code to receive full score of the project. 
 
@@ -35,6 +35,6 @@ Answering the following questions with a concrete example is desirable.
 
 ## Implementation
 
-- How do you share the flight data between the crawler and the web server? Which approach do you choose?
+- How do you share the flight data between the crawler and the control panel? Which approach do you choose?
 - Which parameters in your program is allowed to be changed?
 

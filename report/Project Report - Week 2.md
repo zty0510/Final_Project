@@ -20,4 +20,4 @@ Please submit this report as a PDF file along with your code to receive full sco
 
 ## Integration with the Crawler
 
-- What did you implement in [`state.py`](http://state.py) so that the behavior of the class could be observed when running `state.py` directly while importing anything from the file would not cause the demo to be run?
+- What did you implement in `state.py` so that the behavior of the class could be observed when running `state.py` directly while importing anything from the file would not cause the demo to be run?
