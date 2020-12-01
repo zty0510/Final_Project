@@ -1,5 +1,8 @@
 # SI 100B Project: Who is Flying over? - Week 1
 
+* **Code and Report Due**: 10:00 am, December 11th, 2020, China Standard Time 
+* **Face to Face Check**: From 10:15 am, December 11th, 2020, China Standard Time at SIST 1A-109
+
 In this week, we are finishing the very first yet important task in this project - getting reliable flight information. We are getting the data from websites that provide real-time flight data feed by writing a crawler (网络爬虫程序). What those websites do is distributing the radio receivers across the world in a crowd-sourcing way to pick up the ADB-S signal and distribute the data via the Internet. The most widely used websites of this kind are FlightRadar24 (https://www.flightradar24.com/) and FlightAware (https://flightaware.com/live/ ). 
 
 ## The Data Source
@@ -79,3 +82,28 @@ Write a simple program to get the above information with all the information wit
 ## Submission
 
 You need to submit a report on how you design your web crawler, including what tools you used, what requests you sent to the server and how you parse the result from the server and also your code.
+
+Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109.
+
+First, make a commit from your files. From the root folder of this repository, run
+
+```shell
+git add .
+git commit -m '{your commit message}'
+```
+
+Then add a tag to create a submission.
+
+```shell
+git tag {tagname} && git push origin {tagname}
+```
+
+You need to define your own submission tag by changing `{tagname}`, e.g.
+
+```shell
+git tag first_trial && git push origin first_trial
+```
+
+**Please use a new tag for every new submission.**
+
+Every submission will create a new GitLab issue, where you can track the progress.

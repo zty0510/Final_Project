@@ -1,5 +1,8 @@
 # SI 100B Project: Who is Flying over? - Week 2
 
+* **Code and Report Due**: 10:00 am, December 16th, 2020, China Standard Time 
+* **Face to Face Check**: From 10:15 am, December 16th, 2020, China Standard Time at SIST 1A-109
+
 You are going to control the GPIO pins to light up LEDs according to the air traffic information you get from last week’s crawler. GPIO, or *General Purpose Input and Output*, allows you to connect to a general purpose devices and transfer information from/to them. On your Raspberry Pi, the GPIO interface is the 40-pins array on one side of the board.
 
 ## Light up the LED
@@ -30,3 +33,28 @@ Be prepared to explain how the class `State` and the demo work.
 ## Submission
 
 You should submit a report on how you design this part and also your code.
+
+Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109.
+
+First, make a commit from your files. From the root folder of this repository, run
+
+```shell
+git add .
+git commit -m '{your commit message}'
+```
+
+Then add a tag to create a submission.
+
+```shell
+git tag {tagname} && git push origin {tagname}
+```
+
+You need to define your own submission tag by changing `{tagname}`, e.g.
+
+```shell
+git tag first_trial && git push origin first_trial
+```
+
+**Please use a new tag for every new submission.**
+
+Every submission will create a new GitLab issue, where you can track the progress.

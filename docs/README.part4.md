@@ -1,5 +1,8 @@
 # SI 100B Project: Who is Flying over? - Week 4
 
+* **Code and Report Due**: 10:00 am, December 30, 2020, China Standard Time 
+* **Face to Face Check**: TBD
+
 This week, we are going to visualize the data you crawled from FlightRadar24/FlightAware. Python and many third-party packages of it provide many excellent tools for you to do data processing and draw plots. `numpy` and `matplotlib` are the most used two of all available. In this part, you are going to utilize those two tools to do data aggregation over the data you crawled and display the result in plots in a web page on your web server in real time.
 
 ## Before You Start
@@ -63,3 +66,28 @@ Hint: you can use existing map APIs provided by service providers like the OpenS
 ## Submission
 
 You should submit a report on how you design this part of the project and also your code.
+
+Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109.
+
+First, make a commit from your files. From the root folder of this repository, run
+
+```shell
+git add .
+git commit -m '{your commit message}'
+```
+
+Then add a tag to create a submission.
+
+```shell
+git tag {tagname} && git push origin {tagname}
+```
+
+You need to define your own submission tag by changing `{tagname}`, e.g.
+
+```shell
+git tag first_trial && git push origin first_trial
+```
+
+**Please use a new tag for every new submission.**
+
+Every submission will create a new GitLab issue, where you can track the progress.

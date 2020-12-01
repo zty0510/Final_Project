@@ -1,5 +1,8 @@
 # SI 100B Project: Who is Flying over? - Week 3
 
+* **Code and Report Due**: 10:00 am, December 25th, 2020, China Standard Time 
+* **Face to Face Check**: From 10:15 am, December 25th, 2020, China Standard Time at SIST 1A-109
+
 From this week on, this project will be divided into two parallel parts. The two parallel sub-projects will require you to finish the same set of functionalities for your crawler and LED controller. However, those two parallel sub-projects, namely easy and advanced, are based on different technology stack thus have different difficulty. You are only required to finish one of them. If you choose the advanced one, you will be rewarded with bonus.
 
 In this week, you are building a web interface for controlling how your crawler and LED behave. Essentially, you are required to write a simple interface for your user, which could allow them to change the behavior of your crawler and LED.
@@ -91,3 +94,27 @@ You are required to explain which approach you take (or any other approach you u
 
 You should submit a report on how you design this part of the project and also your code.
 
+Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109.
+
+First, make a commit from your files. From the root folder of this repository, run
+
+```shell
+git add .
+git commit -m '{your commit message}'
+```
+
+Then add a tag to create a submission.
+
+```shell
+git tag {tagname} && git push origin {tagname}
+```
+
+You need to define your own submission tag by changing `{tagname}`, e.g.
+
+```shell
+git tag first_trial && git push origin first_trial
+```
+
+**Please use a new tag for every new submission.**
+
+Every submission will create a new GitLab issue, where you can track the progress.
