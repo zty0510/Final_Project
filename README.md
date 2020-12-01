@@ -48,6 +48,10 @@ After connecting your Pi with your computer with cable, your computer and Pi wil
 
 This will not give your Pi access to the Internet which is needed for this project. You may also need to connect your Pi to the campus wireless network. To do this, you can follow this [documentation](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) or simply attach a screen and a set of keyboard and mouse to your Pi and connect to `ShanghaiTech` or `eduroam` network (you only need to do this for once and your Pi should be able to connect to the network next time). You may need to do network login via the web portal. In this case, you may use those handy [scripts](https://github.com/ShanghaitechGeekPie/WifiLoginer).
 
+### Get the Framework
+
+We are distribting the framework with GitLab which you should be familar with in the Python Programming Part. The only difference is that in order to aid you to work with your teammates, we created a GitLab Group for each team which only your team member have access to. To get started, simply fork the framework at http://gitlab.q71998.cn/homework-fall2020/python-project to **your team group** (whose name starts with *Python Project Team*).
+
 ### Install Dependency
 
 Another thing you need to do is to install the required packages (dependencies) of the project. You can do this by downloading the packages from the PyPI. In the terminal of your Pi (or a shell SSHed into the Pi), in the root directory of your repo, execute the following:
@@ -78,6 +82,8 @@ This project (esp. the framework itself) is only supposed to work in a modern Li
 The team size is 2 or 3. You need to describe how the workload is divided among the team members in your weekly project report. We take the workload division into consideration when grading.
 
 The best practice is to use git as the versioning and collaborating tool with your teammate(s). With git, you can have a clean split between the *development* phase and the *test* phase. Commonly, you will finish the development phase (writing your prototype) on your own computer then synchronize the code to the Pi and complete your testing part.
+
+We have created a Group on GitLab for each team in which you can collaborate with other members of your team.
 
 ## Web basics
 
