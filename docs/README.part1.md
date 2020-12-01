@@ -60,7 +60,7 @@ There are two ways to update the token. The first one is easier. You open a new 
 
 Now that you have some idea of what requests you need to send to get the list of airplanes in a certain area, the next step is to implement the crawler. Now implement the crawler in the `Fr24Crawler` class in `data_source/fr24_crawler.py`. Your implementation should follow the following specifications:
 
-- `__init__(self, loc, rng)`: `loc` is a tuple of two `float`-typed numbers indicating the coordinates of the place you want to get flight information about. The first item in `loc` (i.e., `loc[0]`) is the latitude of the place and the second item is the longitude of the place. `rng` is a `float`-typed number in nautical miles (nm, 海里). You should include all the airplanes within `rng` nautical miles from the place. In this method, initialize your crawler with those parameters.
+- `__init__(self, loc, rng)`: `loc` is a tuple of two `float`-typed numbers indicating the coordinates of the place you want to get flight information about. The first item in `loc` (i.e., `loc[0]`) is the latitude of the place and the second item is the longitude of the place. `rng` is a `float`-typed tuple number indicating the coordinates. You should include all the airplanes within the square that is centered at `loc` and whose northwestern (left upper on a map) corner is at `rng`. In this method, initialize your crawler with those parameters.
 
 - `get_data_once(self)`: This method should send a batch of requests, parse the results and return all the airplane information within `rng` nm of the place at `loc` at the moment and store them in a temporary file (for further use in following tasks). You are free to design your own data type for storing as long as it contains all of the following information of every airplane:
 
@@ -77,7 +77,7 @@ Now that you have some idea of what requests you need to send to get the list of
 
 - `spin(interval=1)`: Run `get_data_once(self)` every `interval` seconds.
 
-Write a simple program to get the above information with all the information within 20nm to someone on campus of ShanghaiTech(lat: 31.17940, lon: 121.59043) with your crawler every 10 seconds and display the result in a proper way. Be prepared to explain how the program works to the TAs.
+Write a simple program to get the above information with all the information within a square whose length is 2 degree to someone on campus of ShanghaiTech(31.17940N, 121.59043E) with your crawler every 10 seconds and display the result in a proper way. Be prepared to explain how the program works to the TAs.
 
 ## Submission
 
