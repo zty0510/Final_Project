@@ -51,7 +51,7 @@ This will not give your Pi access to the Internet which is needed for this proje
 
 ### Get the Framework
 
-We are distribting the framework with GitLab which you should be familar with in the Python Programming Part. The only difference is that in order to aid you to work with your teammates, we created a GitLab Group for each team which only your team member have access to. To get started, simply fork the framework at http://gitlab.q71998.cn/homework-fall2020/python-project to **your team group** (whose name starts with *Python Project Team*).
+We are distribting the framework with GitLab which you should be familar with in the Python Programming Part. The only difference is that in order to aid you to work with your teammates, we created a GitLab Group for each team which only your team member have access to. To get started, vist your code base in  **your team group** (whose name starts with *Python Project Team*).
 
 ### Install Dependency
 
