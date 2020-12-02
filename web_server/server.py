@@ -1,5 +1,5 @@
 #=============================================================================#
-#                               Web Project                                   #
+#                              Python Project                                 #
 #       SI 100B: Introduction to Information Science and Technology           #
 #                       Fall 2020, ShanghaiTech University                    #
 #                     Author: Diao Zihao <hi@ericdiao.com>                    #
