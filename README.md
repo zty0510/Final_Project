@@ -16,13 +16,14 @@ All your programs run on a Raspberry Pi.
 
 You should have received a batch of gears from the SI 100B teaching team. Please take good care of them and make sure they are in a sound condition when you return them to us. Below is a list of components we hand out. Please check yours against them. If there is anything missing or broken, contact us as soon as possible so that we can give you a replacement.
 
-| Item               | Quantity |
-| ------------------ | -------- |
-| Raspberry Pi       | 1        |
-| LED GPIO connector | 1        |
-| USB Charger        | 1        |
-| LED                | 4        |
-| Ehernet cable      | 1        |
+| Item                | Quantity |
+| ------------------- | -------- |
+| Raspberry Pi        | 1        |
+| LED GPIO connector  | 1        |
+| USB Charger         | 1        |
+| Ehernet cable       | 1        |
+| Ehernet USB adaptor | 1        |
+| LED                 | 4        |
 
 First, you need to connect your Raspberry Pi to the Internet through Wi-Fi or the Ethernet port on your board. First, turn on the switch on the charger and connect your Pi to it. Your Pi will be powered up automatically. The red LED indicator on the corner of the board near the USB connector will light up if your Pi is on. The green LED indicator next to it will blink if your Pi’s SD card has been accessed.
 
@@ -92,7 +93,7 @@ Submission of the project is on a per-team-basis. Your team need to submit the f
 * A report describing the work you have done in this week as PDF to Gradescope. One submission from one student is sufficent for a team. When multiple submissions present, we will grade the latest one;
 * Your fully functional implementation of this week's task to GitLab by creating a new tag in **your team's** project codebase.
 
-You also need to attend the face to face check arranged in the lecture time. The due time of your code and report and the time for check for each week is noted on the documentaion of each week in the `docs` directory of the codebase. The template of report is presented in the `reports` directory.
+You also need to attend the face to face check arranged in the lecture time. The due date of your code and report and the time for check for each week is noted on the documentaion of each week in the `docs` directory of the codebase. The template of report is presented in the `reports` directory.
 
 ## Web basics
 
