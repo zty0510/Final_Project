@@ -13,7 +13,7 @@ In this section, you are going to explore the schema of requests and responses o
 
 Many well-written Python packages can help you to send requests to an HTTP server and get responses. A package called `requests`, which could be installed with PyPI, is recommended for this project. Some other packages, like `urllib3`, provide the same functionality but is more complicated to use. Before you start, you need to understand how to use your tools. Read the documentation of [`requests`](https://requests.readthedocs.io/en/master/) or any other HTTP client library you choose to use, and answer the following questions:
 
-*  How to send an HTTP `GET` request to a URL, for example, the home page of ShanghaiTech?  You can also use other smaller websites to get started, for example, the [pwd man page](http://linuxcommand.sourceforge.net/lc3_man_pages/pwdh.html).
+*  How to send an HTTP `GET` request to a URL, for example, the home page of ShanghaiTech (`https://www.shanghaitech.edu.cn/`)?  You can also use other smaller websites to get started, for example, the [pwd man page](https://man7.org/linux/man-pages/man1/pwd.1.html) (`https://man7.org/linux/man-pages/man1/pwd.1.html`) from the the Linux *man-pages* project.
 * Which format of URL does the package accept? Is `https://www.shanghaitech.edu.cn/` a legal URL? How about `sist.shanghaitech.edu.cn`?
 * How to determine if the request is successful? For example, what is the status code you get from requesting `https://httpbin.org/status/400`? Is it a status code indicating a successful processed request?
 * How to get the response body for a request? For example, how will you get the content of `https://tools.ietf.org/rfc/rfc2616.txt` with your tool in Python?
@@ -26,7 +26,7 @@ Prepare to explain your answers to a TA.
 
 Follow this section if you choose to crawl FlightRadar24 for data. Jump to next section if you are using FlightAware.
 
-Now, open FlightRadar24 (linked above) in your browser (a current version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser (If you use Chrome, press `Control+Shift+I`). Wait until the site is fully loaded and starts to display the location of airplanes, and then go to the `network` tab of your developer tools. Explore the requests your browser sent out and the response from the server. Determine which part of the requests is related to the dynamic updating of the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
+Now, open FlightRadar24 (linked above) in your browser (a current version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser (If you use Chrome, Chrome based browsers (e.g., Edge) or FireFox, press `Control+Shift+I` on PC or `⌘ + ⌥ + I` on macOS). Wait until the site is fully loaded and starts to display the location of airplanes, and then go to the `network` tab of your developer tools. Explore the requests your browser sent out and the response from the server. Determine which part of the requests is related to the dynamic updating of the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
 
 - Write down the URL of the requests and take a guess of what each part of the parameters means;
 - Determine what method is used for each request;
@@ -43,7 +43,7 @@ Write a simple program to verify your guess in this section and prepare to expla
 
 Follow this section is you choose to crawl FlightAware for your data.
 
-Now, open FlightAware (linked above) in your browser (a current version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser(If you use Chrome, press `Control+Shift+I`). Wait until the site is fully loaded and starts to display the location of airplanes, and then go to the `network` tab of your developer tools. Explore the requests your browser sent out and response from the server. Determine which part of the requests is related to the dynamic updating of the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
+Now, open FlightAware (linked above) in your browser (a current version of Chrome, Firefox, Safari and Edges is highly recommended) and open the developer tool of your browser (If you use Chrome, Chrome based browsers (e.g., Edge) or FireFox, press `Control+Shift+I` on PC or `⌘ + ⌥ + I` on macOS). Wait until the site is fully loaded and starts to display the location of airplanes, and then go to the `network` tab of your developer tools. Explore the requests your browser sent out and response from the server. Determine which part of the requests is related to the dynamic updating of the page to show the up-to-date list of airplanes in a certain area. Then do the following things:
 
 - Write down the URL of the requests and take a guess of what each part of the parameters means;
 - Determine what method is used for each request;
@@ -60,7 +60,7 @@ There are two ways to update the token. The first one is easier. You open a new 
 
 Now that you have some idea of what requests you need to send to get the list of airplanes in a certain area, the next step is to implement the crawler. Now implement the crawler in the `Fr24Crawler` class in `data_source/fr24_crawler.py`. Your implementation should follow the following specifications:
 
-- `__init__(self, loc, rng)`: `loc` is a tuple of two `float`-typed numbers indicating the coordinates of the place you want to get flight information about. The first item in `loc` (i.e., `loc[0]`) is the latitude of the place and the second item is the longitude of the place. `rng` is a `float`-typed tuple number indicating the coordinates. You should include all the airplanes within the square that is centered at `loc` and whose northwestern (left upper on a map) corner is at `rng`. In this method, initialize your crawler with those parameters.
+- `__init__(self, loc, rng)`: `loc` is a tuple of two `float`-typed numbers indicating the coordinates of the place you want to get flight information about. The first item in `loc` (i.e., `loc[0]`) is the latitude of the place and the second item is the longitude of the place. `rng` is also a `float`-typed tuple of two numbers indicating a coordinate. You should include all the airplanes within the square that is centered at `loc` and whose northwestern (i.e., left upper on a map) corner is at `rng`. In this method, initialize your crawler with those parameters.
 
 - `get_data_once(self)`: This method should send a batch of requests, parse the results and return all the airplane information within `rng` nm of the place at `loc` at the moment and store them in a temporary file (for further use in following tasks). You are free to design your own data type for storing as long as it contains all of the following information of every airplane:
 
@@ -71,19 +71,19 @@ Now that you have some idea of what requests you need to send to get the list of
   - The squawk number (应答机编号), registration number (国籍注册号) and flight number (航班号) of the flight;
   - The departure airport and the arrival airport’s IATA code of the airplane.
 
-  Notice that you are required to store the information you get from FlightRadar24 to a temporary file, a common practice on Linux is to store it under `/tmp`. You should give the temporary file with a suitable name so that you can find it easily in the future. Before you store the file, you may need to serialize the data with some format like JSON.
+  Notice that you are required to store the information you get from FlightRadar24 to a temporary file, a common practice on Linux is to store it under `/tmp`. You should give the temporary file with a suitable name so that you can find it easily in the future. Before you store the file, you may need to serialize the data with some format like JSON or CSV.
   
   **Hint**: You may need to come up with a way to convert the central coordinate and range representation in this project to one that the API of FlightRadar24 or FlightAware could understand before sending it to the server. This involves some geometry on the sphere. However, your conversion could be an approximate one.
 
-- `spin(interval=1)`: Run `get_data_once(self)` every `interval` seconds.
+- `spin(self, interval=1)`: Run `get_data_once(self)` every `interval` seconds.
 
-Write a simple program to get the above information with all the information within a square whose length is 2 degree to someone on campus of ShanghaiTech(31.17940N, 121.59043E) with your crawler every 10 seconds and display the result in a proper way. Be prepared to explain how the program works to the TAs.
+Write a simple program to get the above information with all the information within a square whose length is 3 degree and is centered at someone on campus of ShanghaiTech (approx. `31.17940N, 121.59043E`) with your crawler every 10 seconds and display the result in a proper way. Be prepared to explain how the program works to the TAs.
 
 ## Submission
 
 You need to submit a report on how you design your web crawler, including what tools you used, what requests you sent to the server and how you parse the result from the server and also your code.
 
-Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109.
+Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109. You are allowed to submit your report and implementaion for unlimited times before the deadline, only the last submission will be used for grading but all your code in to the code base and all the versions of your report are subject to the [academic code of conduct](https://si100b.org/resource-policy/#policies).
 
 First, make a commit from your files. From the root folder of this repository, run
 

@@ -34,7 +34,7 @@ Be prepared to explain how the class `State` and the demo work.
 
 You should submit a report on how you design this part and also your code.
 
-Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109.
+Submit your report as a PDF file to Gradescope. Submit your implementation code to GitLab by creating a tag as followed. Attend the face to face check at SIST 1A-109. You are allowed to submit your report and implementaion for unlimited times before the deadline, only the last submission will be used for grading but all your code in to the code base and all the versions of your report are subject to the [academic code of conduct](https://si100b.org/resource-policy/#policies).
 
 First, make a commit from your files. From the root folder of this repository, run
 
