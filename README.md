@@ -85,6 +85,15 @@ The best practice is to use git as the versioning and collaborating tool with yo
 
 We have created a Group on GitLab for each team in which you can collaborate with other members of your team.
 
+## Submission
+
+Submission of the project is on a per-team-basis. Your team need to submit the following every week in order to get full score:
+
+* A report describing the work you have done in this week as PDF to Gradescope. One submission from one student is sufficent for a team. When multiple submissions present, we will grade the latest one;
+* Your fully functional implementation of this week's task to GitLab by creating a new tag in **your team's** project codebase.
+
+You also need to attend the face to face check arranged in the lecture time. The due time of your code and report and the time for check for each week is noted on the documentaion of each week in the `docs` directory of the codebase. The template of report is presented in the `reports` directory.
+
 ## Web basics
 
 Instead of describing some concepts like TCP/IP in a tedious way, this part of the document is aimed at giving you some general ideas of web and (hopefully) helping you to understand how a web crawler works better in the following READMEs. So a basic understanding is enough - but if you are too confused to have a general idea, just search for the relative bold words (粗体字) in your browser. We don't specify every one of them since we don't want to flood you with tons of new and not-so-relevant ideas.
