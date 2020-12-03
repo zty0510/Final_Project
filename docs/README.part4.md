@@ -3,7 +3,7 @@
 * **Code and Report Due**: 10:00 am, December 30, 2020, China Standard Time 
 * **Face to Face Check**: TBD
 
-This week, we are going to visualize the data you crawled from FlightRadar24/FlightAware. Python and many third-party packages of it provide many excellent tools for you to do data processing and draw plots. `numpy` and `matplotlib` are the most used two of all available. In this part, you are going to utilize those two tools to do data aggregation over the data you crawled and display the result in plots in a web page on your web server in real time.
+This week, we are going to visualize the data you crawled from FlightRadar24/FlightAware. Python provides a lot of useful tools for data processing and visualization. `numpy` and `matplotlib` are often used for these tasks. In this part, you are going to utilize those two tools to do data aggregation and display the result in plots on a web page on your web server in real time.
 
 ## Before You Start
 
@@ -18,50 +18,43 @@ Read the [documentation](https://matplotlib.org/contents.html) of `matplotlib`, 
 
 - How to serve image with Flask?
 - How to add a route (that handles new URLs) to Flask?
-- How to render a HTML template with Flask with parameters?
+- How to render an HTML template using Flask with parameters?
 
-Write a simple program to plot the function $y= x^2$ (x from -1 to 1 ) with `matplotlib` and save the plot as a PNG-formatted image. Prepare to explain your answers to those questions and your simple program to TAs during check.
+Write a simple program to plot the function $y= x^2$ (x from -1 to 1) with `matplotlib` and save the plot as a PNG-formatted image. Prepare to explain your answers to those questions and your simple program to TAs during check.
 
 ## Draw the Plots
 
 ### Plot
 
-First you need to draw the plot. Noticing that in week 1, we stored the data from FlightRadar24/FlightAware to a file on the file system, you may need to load the data from the file before you start to draw the plot.
+First you need to draw the plot. Remember that in task 1, we stored the data from FlightRadar24/FlightAware to a file on the file system, you may need to load the data from the file before you start to draw the plot.
 
-Different people may have different ways to interpret the same set of data. In this project, you are allowed to choose your own way of interpreting the data you get and drawing your own plot. In week 1's project, you have collected a set of data from FlightRadar24/FlightAware which includes the tail number, departure city, destination city, flight number and so on. You can choose a set of them to do data aggregation and plot your own graph of the aggregated data. For example, you could explore the destination of the airplanes by plotting a bar chart of the destination of all the airplanes in sight. Come up with two ways of data aggregation and drawing your plots. Then try to implement them with `matplotlib` and `numpy`. Keep the questions above in your mind when implementing.
+In this project, you can choose your own way of interpreting the data and drawing your own plot. In task 1, you collected data from FlightRadar24/FlightAware, including the tail number, departure city, destination city, flight number and so on. You can choose some of them to do data aggregation and plot your own graph of the aggregated data. For example, you could explore the destination of the airplanes by plotting a bar chart counting numbers of flights for each destination. Come up with two ways of data aggregation and draw corresponding plots. Then try to implement them with `matplotlib` and `numpy`. Keep the questions above in your mind during implementation.
 
 ### Easy: Display Your Plot
 
 This section is for students who want to finish the easy version of this sub-project.
 
-Having implemented your data analysis and plotted, you now need to display the plot you drew on the screen of your Pi. The plot you drew should update in real time with new data from FlightRadar24/FlightAware.
+The plots should update in real time with new data from FlightRadar24/FlightAware.
 
 ### Advanced: Display through Web Server
 
 This section is for students who want to finish the advanced version of this sub-project.
 
-Now you have your own way to display the data. Next, you need to display the plot you drew to the user. Keep in mind that your plot should be updated in real time (i.e., after new data arrives from the crawler, the user should be able to see the graphs rendered from the new data instead of the out-of-date one once he/she refreshes).
+Now you have your own way to display the data. Next, you need to display the plot to the users. Keep in mind that your plot should be updated in real time (i.e., after new data arrives from the crawler, the user should be able to see the graphs rendered from the new data once he/she refreshes the webpage). In this part, if you like, you can use tools other than matplotlib to do the visualization. For instance, you can use tools to create interactive visualizations.
 
-Thinking about the following questions will help you with your decision making process:
+Thinking about the following questions when you design your display page:
 
-1. When do you update your graph?  When the new data comes, or when the user request comes?
+1. When do you update your graph? When the new data comes, or when the user request comes?
+
 2. How do you store the data used for rendering the graph?
+
 3. How do you store the graph after being rendered by `matplotlib`?
-4. How can Flask do to read the graph you stored?
 
-In `web_server/server.py`, continue implementing your web server in function `vis()`, so that the server could display both of the two graphs you created in the last step. To achieve this, you may need to return a HTML document to the browser that includes `<img>` tags (search for how to use it online) to the two graphs and serve the image from another URL. Also, add an additional tag to your HTML document to make the page refreshed every 5 seconds to reflect the up-to-date data (search online for how to do so. It requires you to add a simple tag to your HTML document).
+4. How can Flask read the graph you stored?
 
-Now start the project and visit `127.0.0.1:5000` on your browser to verify your implementation.
+In `web_server/server.py`, continue implementing your web server in function `vis()`, so that the server could display both of the two graphs you created in the last step. To achieve this, you may need to return an HTML document to the browser that includes `<img>` tags (search for how to use it online) for the two graphs. Also, add an additional tag to your HTML document to make the page refreshed every 5 seconds to reflect the up-to-date data (search online for how to do so.).
 
-## Bonus: FlightRadar24 Replica
-
-This is a bonus task.
-
-The FlightRadar24 website is quite heavy. Opening it will cost you more than 30 seconds in a slow connection. Now that we have the exact data from FlightRadar24, why not create a light-weight replica of the website locally that runs faster?
-
-This bonus task requires you to create a toy replica of FlightRadar24 to display the data you get from the website on a map.  Finishing it and passing the check will add an additional ** to your overall score.
-
-Hint: you can use existing map APIs provided by service providers like the OpenStreetMap, Amap or Baidu Map to display the map and display the flights you crawled on it. Finishing this task requires some degree of understanding of Javascript and modern web development.
+Now start the project and visit `127.0.0.1:5000` in your browser to show your implementation.
 
 ## Submission
 
