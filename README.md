@@ -16,14 +16,14 @@ All your programs run on a Raspberry Pi.
 
 You should have received a batch of gears from the SI 100B teaching team. Please take good care of them and make sure they are in a sound condition when you return them to us. Below is a list of components we hand out. Please check yours against them. If there is anything missing or broken, contact us as soon as possible so that we can give you a replacement.
 
-| Item                | Quantity |
-| ------------------- | -------- |
-| Raspberry Pi        | 1        |
-| LED GPIO connector  | 1        |
-| USB Charger         | 1        |
-| Ehernet cable       | 1        |
-| Ehernet USB adaptor | 1        |
-| LED                 | 4        |
+| Item                 | Quantity |
+| -------------------- | -------- |
+| Raspberry Pi         | 1        |
+| LED GPIO connector   | 1        |
+| USB Charger          | 1        |
+| Ethernet cable       | 1        |
+| USB Ethernet adapter | 1        |
+| LED                  | 4        |
 
 First, you need to connect your Raspberry Pi to the Internet through Wi-Fi or the Ethernet port on your board. First, turn on the switch on the charger and connect your Pi to it. Your Pi will be powered up automatically. The red LED indicator on the corner of the board near the USB connector will light up if your Pi is on. The green LED indicator next to it will blink if your Pi’s SD card has been accessed.
 
@@ -51,7 +51,7 @@ This will not give your Pi access to the Internet which is needed for this proje
 
 ### Get the Framework
 
-We are distribting the framework with GitLab which you should be familar with in the Python Programming Part. The only difference is that in order to aid you to work with your teammates, we created a GitLab Group for each team which only your team member have access to. To get started, vist your code base in  **your team group** (whose name starts with *Python Project Team*).
+We are distribting the framework with GitLab which you should be familar with in the Python Programming Part. The only difference is that in order to aid you to work with your teammates, we created a GitLab Group for each team which only your team member have access to. To get started, visit your code base in  **your team group** (whose name starts with *Python Project Team*).
 
 ### Install Dependency
 
