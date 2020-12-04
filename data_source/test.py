@@ -6,7 +6,7 @@ longitude = a['features'][3]["geometry"]['coordinates'][1]
 heading = a['features'][4]["properties"]['direction']
 altitude = a['features'][4]["properties"]['altitude']
 groundspeed = a['features'][4]["properties"]['groundspeed']
-registration_number =
+registration_number=123
 
 
 
