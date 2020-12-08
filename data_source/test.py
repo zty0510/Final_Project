@@ -3,12 +3,14 @@ a = {"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type"
 
 latitude = a['features'][3]["geometry"]['coordinates'][0]
 longitude = a['features'][3]["geometry"]['coordinates'][1]
-heading = a['features'][4]["properties"]['direction']
-altitude = a['features'][4]["properties"]['altitude']
-groundspeed = a['features'][4]["properties"]['groundspeed']
-registration_number=123
+heading = a['features'][3]["properties"]['direction']
+altitude = a['features'][3]["properties"]['altitude']
+groundspeed = a['features'][3]["properties"]['groundspeed']
+flight_number=a['features'][3]["properties"]['ident']
+departure_airport_IATA_CODE = a['features'][4]["properties"]['origin']['iata']
+arrival_airport_IATA_CODE  = a['features'][4]["properties"]['destination']['iata']
 
 
 
-print(latitude,longitude,heading,altitude,groundspeed)
-print(a['features'][4]["properties"])
+print(latitude,longitude,heading,altitude,groundspeed,flight_number,departure_airport_IATA_CODE,arrival_airport_IATA_CODE)
+
