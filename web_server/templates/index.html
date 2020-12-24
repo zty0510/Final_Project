@@ -1,24 +1,112 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-<meta charset="utf-8">
-<title></title>
-
+  <meta charset="utf-8">
+  <title>飞行爬虫控制</title>
+  <style type="text/css">
+    body {
+      background-color: #f0e9e4;
+      margin-left: 40%;
+    }
+    body,td,th {
+	font-size: 16px;
+    }
+  </style>
 </head>
-<body>
-<form method="post">
-      {{ form.center_Lon.label }}{{ form.center_Lon }}<br>
 
-      {{ form.center_Lat.label }}{{ form.center_Lat }}<br>
+<body >
+<form method="post" action="/getdata">
+  <h3><strong style="color: #D12573; font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; text-align: right; font-size: 24px;"> FLIGHT CONTROL PANEL
+  </strong></h3>
+  <h1 style="font-size: 18px; color: #9F4680;">一：经纬度控制</h1>
+  <p>
+    <label for="center_Lon"><span style="text-align: right; font-family: '华文隶书'; font-size: 18px;">请输入<strong>中心点</strong><em>经度</em></span></label>
+    <span style="text-align: right">
+  <input type="number" name="center_Lon" id="center_Lon" placeholder="121.59043" onchange="change1()" required="true">
+</span></p>
+  <p>
+    <label for="center_Lat"><span style="font-family: '华文隶书'; font-size: 18px;">请输入<strong>中心点</strong><em>纬度</em></span></label>
+    <input type="number" name="center_Lat" id="center_Lat" placeholder="31.17940" onchange="change2()" required="true">
+  </p>
+  <p>—————————————</p>
+  <p>
+    <label for="northeastern_Lon"><span style="font-family: '隶书'; font-size: 18px;">请输入<strong>西北点</strong><em>经度</em></span></label>
+    <input type="number" name="northeastern_Lon" id="northeastern_Lon" placeholder="120.09043" onchange="change3()" required="true">
+  </p>
+  <p>
+    <label for="northeastern_Lat"><span style="text-align: center; font-family: '隶书'; font-size: 18px;">请输入<strong>西北点</strong><em>纬度</em></span></label>
+    <span style="text-align: center">
+  <input type="number" name="northeastern_Lat" id="northeastern_Lat" placeholder="32.67940" onchange="change4()" required="true">
+</span></p>
+  <p>—————————————</p>
+  <p>&nbsp;</p>
+  <h2 style="font-size: 18px; color: #c63739;"><strong>二：频率控制</strong></h2>
+  <p style="font-size: 18px; color: #c63739;">
+    <label for="crawler_interval"><span style="color: #000000">请输入爬取间隔</span></label>
+    <input type="number" name="crawler_interval" id="crawler_interval" placeholder="15" required="true">
+  </p>
+  <p style="font-size: 18px; color: #c63739;">&nbsp;</p>
+  <p style="font-size: 18px; color: #c63739;">三：LED灯控制</p>
+  <p style="font-size: 18px; color: #030303;">
+    <label for="blink_interval">请输入LED灯显示间隔</label>
+    <input type="number" name="blink_interval" id="blink_interval" placeholder="5" required="true">
+  </p>
+  <p>
+    <input type="submit" value="提交" >
 
-      {{ form.northeastern_Lon.label }}{{ form.northeastern_Lon }}<br>
 
-      {{ form.northeastern_Lat.label }}{{ form.northeastern_Lat }}<br>
 
-      {{ form.crawler_interval.label }}{{ form.crawler_interval }}<br>
+  </p>
+  <p><a href="/config">查看输入参数</a></p>
+  <p><a href="/showdata">查看输出数据</a></p>
+  <p>&nbsp;</p>
 
-      {{ form.submit }}<br>
+  <script>
+
+
+
+
+
+    function change1(){
+      var a=document.getElementById("center_Lon").value;
+      if(a<-180||a>180){
+        alert("中心点经度输入不合法！请重新输入");
+        document.getElementById("center_Lon").value='';
+      }
+
+    }
+
+    function change2() {
+      var a = document.getElementById("center_Lat").value;
+      if (a < -90 || a > 90) {
+        alert("中心点纬度输入不合法！请重新输入");
+        document.getElementById("center_Lat").value = '';
+      }
+    }
+
+    function change3() {
+      var a = document.getElementById("northeastern_Lon").value;
+      if (a < -180 || a > 180) {
+        alert("西北点经度输入不合法！请重新输入");
+        document.getElementById("northeastern_Lon").value = '';
+      }
+    }
+
+    function change4() {
+      var a = document.getElementById("northeastern_Lat").value;
+      if (a < -90 || a > 90) {
+        alert("西北点纬度输入不合法！请重新输入");
+        document.getElementById("northeastern_Lat").value = '';
+      }
+    }
+
+
+
+  </script>
+
+
 </form>
+
 
 </body>
 </html>

@@ -16,9 +16,13 @@
 # Understand every line of the file before proceed to editing. When in doubt,
 # ask on Piazza.
 
-from state import State
-from data_source.fr24_crawler import Fr24Crawler
-from web_server.server import web_server
+import state
+import data_source.fr24_crawler
+import web_server.server
+
+# from state import State
+# from data_source.fr24_crawler import Fr24Crawler
+# from web_server.server import web_server
 from cli.cli import cli_start
 import os
 import sys
@@ -65,7 +69,7 @@ if __name__ == "__main__":
         ppid = os.getppid()
         try:
             if flag == '--web':
-                web_server.run(host="0.0.0.0", port=9000)
+                web_server.server.web_server.run(host="0.0.0.0", port=9000)
             elif flag == '--cli':
                 cli_start()
         except KeyboardInterrupt:
@@ -78,13 +82,13 @@ if __name__ == "__main__":
         if cralwer_pid == 0:
             ppid = os.getppid()
             try:
-                state = State()
+                state = state.State()
                 state.spin()
             except KeyboardInterrupt:
                 os.kill(ppid)
         else:
             try:
-                cralwer = Fr24Crawler((0, 0), 0)
+                cralwer = data_source.fr24_crawler.Fr24Crawler((0, 0), 0)
                 cralwer.spin()
             except KeyboardInterrupt:
                 # The process is being killed, let the child process exit.

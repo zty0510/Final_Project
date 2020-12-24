@@ -78,4 +78,9 @@ class BaseController:
         self.blue.off()
         self.green.off()
         self.yellow.off()
+    def release(self):
+        self.red.close()
+        self.blue.close()
+        self.green.close()
+        self.yellow.close()
 

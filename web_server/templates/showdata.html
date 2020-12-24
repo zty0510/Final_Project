@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <title>飞行爬虫控制</title>
+
+</head>
+
+<table class='table tabel-bordered'>
+<tr>
+    <th>latitude</th>
+    <th>longitude</th>
+    <th>heading</th>	
+    <th>altitude</th>	
+    <th>groundspeed</th>	
+    <th>flight_number</th>	
+    <th>departure_airport_IATA_CODE</th>	
+    <th>arrival_airport_IATA_CODE</th>
+    {%for i in data%}
+        <tr>
+            <td>{{i.latitude}}</td>
+            <td>{{i.longitude}}</td>
+            <td>{{i.heading}}</td>
+            <td>{{i.altitude}}</td>
+            <td>{{i.groundspeed}}</td>
+            <td>{{i.flight_number}}</td>
+            <td>{{i.departure_airport_IATA_CODE}}</td>
+            <td>{{i.arrival_airport_IATA_CODE}}</td>
+        </tr>
+    {%endfor%}
+</tr>
+</table>
+
+<a href='/'>返回原界面<a>
+</body>
