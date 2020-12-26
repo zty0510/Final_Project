@@ -1,0 +1,109 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <title>飞行爬虫控制</title>
+  <style type="text/css">
+    body {
+      background-color: #f0e9e4;
+      margin-left: 40%;
+    }
+    body,td,th {
+      font-size: xx-large;
+    }
+  </style>
+</head>
+
+<body >
+<form action='/config' method="post">
+  <h3><strong style="color: #D12573; font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; text-align: right; font-size: 24px;"> FLIGHT CONTROL PANEL
+  </strong></h3>
+  <h1 style="font-size: 18px; color: #9F4680;">一：经纬度控制</h1>
+  <p>
+    <label for="center_Lon"><span style="text-align: right; font-family: '华文隶书'; font-size: 18px;">请输入<strong>中心点</strong><em>经度</em></span></label>
+    <span style="text-align: right">
+  <input type="text" name="center_Lon" id="center_Lon" placeholder="121.59043" onchange="change1()" >
+</span></p>
+  <p>
+    <label for="center_Lat"><span style="font-family: '华文隶书'; font-size: 18px;">请输入<strong>中心点</strong><em>纬度</em></span></label>
+    <input type="text" name="center_Lat" id="center_Lat" placeholder="31.17940" onchange="change2()">
+  </p>
+  <p>—————————————</p>
+  <p>
+    <label for="northeastern_Lon"><span style="font-family: '隶书'; font-size: 18px;">请输入<strong>西北点</strong><em>经度</em></span></label>
+    <input type="text" name="northeastern_Lon" id="northeastern_Lon" placeholder="120.09043" onchange="change3()">
+  </p>
+  <p>
+    <label for="northeastern_Lat"><span style="text-align: center; font-family: '隶书'; font-size: 18px;">请输入<strong>西北点</strong><em>纬度</em></span></label>
+    <span style="text-align: center">
+  <input type="text" name="northeastern_Lat" id="northeastern_Lat" placeholder="32.67940" onchange="change4()">
+</span></p>
+  <p>—————————————</p>
+  <p>&nbsp;</p>
+  <h2 style="font-size: 18px; color: #c63739;"><strong>二：频率控制</strong></h2>
+  <p style="font-size: 18px; color: #c63739;">
+    <label for="crawler_interval"><span style="color: #000000">请输入爬取频率</span>:</label>
+    <input type="text" name="crawler_interval" id="crawler_interval" placeholder="15">
+  </p>
+  <p style="font-size: 18px; color: #c63739;">
+    <label for="crawler_interval"><span style="color: #000000">请输入LED频率</span>:</label>
+    <input type="text" name="LED_time" id="LED_time" placeholder="15">
+  </p>
+  <p>
+    <input type="submit" value="提交" >
+  <a href='/config'>查看输入数据<a>
+  <a href='/showdata'>查看爬取数据<a>
+  <a href='/vis'>查看数据可视化<a>
+
+
+  </p>
+
+  <script>
+
+
+
+
+
+//    function change1(){
+//      var a=document.getElementById("center_Lon").value;
+//      if(a<-180||a>180){
+//        alert("中心点经度输入不合法！请重新输入");
+//        document.getElementById("center_Lon").value='';
+//      }
+
+//    }
+
+//    function change2() {
+//      var a = document.getElementById("center_Lat").value;
+//      if (a < -90 || a > 90) {
+//        alert("中心点纬度输入不合法！请重新输入");
+//        document.getElementById("center_Lat").value = '';
+//      }
+//    }
+
+//    function change3() {
+//      var a = document.getElementById("northeastern_Lon").value;
+//      if (a < -180 || a > 180) {
+//        alert("西北点经度输入不合法！请重新输入");
+//        document.getElementById("northeastern_Lon").value = '';
+//      }
+//    }
+
+//    function change4() {
+//      var a = document.getElementById("northeastern_Lat").value;
+//      if (a < -90 || a > 90) {
+//        alert("西北点纬度输入不合法！请重新输入");
+//        document.getElementById("northeastern_Lat").value = '';
+//      }
+//    }
+
+
+
+  </script>
+
+
+</form>
+
+
+</body>
+</html>

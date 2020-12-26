@@ -12,7 +12,7 @@ from time import sleep
 
 class BaseController:
 
-    def __init__(self, red, yellow, green, blue):
+    def __init__(self, red=6, yellow=13, green=19, blue=26):
         self.red = gpiozero.LED(red)
         self.yellow = gpiozero.LED(yellow)
         self.green = gpiozero.LED(green)
